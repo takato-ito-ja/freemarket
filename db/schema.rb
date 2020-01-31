@@ -13,13 +13,22 @@
 ActiveRecord::Schema.define(version: 20200131035419) do
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
-    t.string   "reset_password_token"
+    t.string   "email",                                default: "", null: false
+    t.string   "encrypted_password",                   default: "", null: false
+    t.string   "nickname",               limit: 50,                 null: false
+    t.string   "first_name",             limit: 50,                 null: false
+    t.string   "last_name",              limit: 50,                 null: false
+    t.string   "first_name_kana",        limit: 50,                 null: false
+    t.string   "last_name_kana",         limit: 50,                 null: false
+    t.integer  "phone_number",                                      null: false
+    t.date     "birthday",                                          null: false
+    t.text     "icon",                   limit: 65535
+    t.text     "introduction",           limit: 65535
+    t.string   "reset_password_token",                              null: false
     t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
+    t.datetime "remember_created_at",                               null: false
+    t.datetime "created_at",                                        null: false
+    t.datetime "updated_at",                                        null: false
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
