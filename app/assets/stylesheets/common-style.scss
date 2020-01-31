@@ -1,0 +1,66 @@
+* {
+  box-sizing: border-box;
+}
+.header {
+  height:128px;
+  text-align: center;
+  img {
+    margin: 40px 0 0;
+    height: 60px;
+    width: 180px;
+  }
+}
+
+.footer {
+  background-color: #272727;
+  height: 150px;
+  width: 100%;
+  text-align: center;
+  color: #fff;
+  img {
+    height: 60px;
+    width: 180px;
+    margin: 20px 0 0;
+  }
+}
+
+.login-container {
+  margin: 0 auto;
+  width: 450px;
+  .sign-up {
+    text-align: center;
+    &__text {
+      font-size: 14px;
+    }
+    &__link {
+      background-color: #3CCACE;
+      a {
+        color: white;
+        text-decoration: none;
+        line-height: 40px;
+      }
+    }
+  }
+  .login-menu {
+    text-align: center;
+    padding-top: 40px;
+    &__mail-form {
+      .mail-form {
+        width: 100%;
+        line-height: 40px;
+      }
+    }
+    &__btn {
+      color: white;
+      margin: 40px 0;
+      .btn {
+        background-color: #3CCACE;
+        color: white;
+        font-size: 14px;
+        line-height: 40px;
+        width: 100%;
+      }
+    }
+  }
+
+}
