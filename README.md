@@ -58,12 +58,11 @@ Things you may want to cover:
 |brand_id|references|foreign_key: true|
 |price|integer|null: false|
 |description|text|null: false|
-|condition_id|references|null: false, foreign_key: true|
+|condition|references|null: false, foreign_key: true|
 |postage_burden|integer|null: false|
-|sending_method|references|null: false, foreign_key: true|
 |area_id|references|null: false, foreign_key: true|
 |scheduled_sending_date|integer|null: false|
-|size_id|references|foreign_key: true|
+|size|references|foreign_key: true|
 |status|integer|null: false|
 |buyer_id|references|foreign_key: { to_table: :users }|
 |buyed_time|timestamps||
@@ -71,6 +70,8 @@ Things you may want to cover:
 |payment_status|integer|null: false|
 |sending_status|integer|null: false|
 |recieving_status|integer|null: false|
+|sending_methods|integer|null: false|
+
 ### Association
 - has_many :images, dependent: :destroy
 - accepts_nested_attributes_for :images, allow_destroy: true
@@ -81,9 +82,6 @@ Things you may want to cover:
 - belongs_to :category
 - belongs_to :brand, optional: true
 - belongs_to :area
-- belongs_to :size, optional: true
-- belongs_to :condition
-- belongs_to :sending_method
 - belongs_to :postage_burden
 - belongs_to :scheduled_sending_date
 ## postage_burdensテーブル
@@ -93,24 +91,6 @@ Things you may want to cover:
 ### Association
 - has_many :products
 ## scheduled_sending_datesテーブル
-|Column|Type|Options|
-|------|----|-------|
-|name|string|null: false|
-### Association
-- has_many :products
-## sizesテーブル
-|Column|Type|Options|
-|------|----|-------|
-|name|string|null: false|
-### Association
-- has_many :products
-## conditionsテーブル
-|Column|Type|Options|
-|------|----|-------|
-|name|string|null: false|
-### Association
-- has_many :products
-## sending_methodsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
