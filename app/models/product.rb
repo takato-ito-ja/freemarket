@@ -14,22 +14,22 @@ class Product < ApplicationRecord
 
 
 
-  validates :name, presence: true, profanity_filter: true
-  validates :description, presence: true, profanity_filter: true
-  validates :category_id, presence: true
-  validates :category, presence: true
-  validates :price, presence: true
-  validates :condition, presence: true
-  validates :sending_methods, presence: true
-  validates :status, presence: true
-  validates :area_id, presence: true
-  validates :sending_status, presence: true
-  validates :fee_payer, presence: true
-  validates :scheduled_sending_date, presence: true
-  validates :postage_burden, presence: true
-  validates :payment_method, presence: true
-  validates :payment_status, presence: true
-  validates :recieving_status, presence: true
+  validates :name,                    presence: true, profanity_filter: true
+  validates :description,             presence: true, profanity_filter: true
+  validates :category_id,             presence: true
+  validates :category,                presence: true
+  validates :price,                   presence: true
+  validates :condition,               presence: true
+  validates :sending_methods,         presence: true
+  validates :status,                  presence: true
+  validates :area_id,                 presence: true
+  validates :sending_status,          presence: true
+  validates :fee_payer,               presence: true
+  validates :scheduled_sending_date,  presence: true
+  validates :postage_burden,          presence: true
+  validates :payment_method,          presence: true
+  validates :payment_status,          presence: true
+  validates :recieving_status,        presence: true
 
 
   enum category: { レディース: 1, メンズ: 2, ベビー・キッズ: 3, インテリア・住まい・小物: 4, 本・音楽・ゲーム: 5, おもちゃ・ホビー・グッズ:6, コスメ・香水・美容: 7, 家電・スマホ・カメラ: 8, スポーツ・レジャー: 9, ハンドメイド: 10, チケット: 11, 自動車・オートバイ: 12, その他: 13}, _prefix: true

@@ -10,6 +10,45 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20200131095254) do
+
+  create_table "products", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "name",                                 null: false
+    t.integer  "price",                                null: false
+    t.text     "description",            limit: 65535, null: false
+    t.integer  "postage_burden",                       null: false
+    t.integer  "scheduled_sending_date",               null: false
+    t.integer  "status",                               null: false
+    t.datetime "created_at",                           null: false
+    t.datetime "updated_at",                           null: false
+    t.integer  "payment_method",                       null: false
+    t.integer  "payment_status",                       null: false
+    t.integer  "sending_status",                       null: false
+    t.integer  "recieving_status",                     null: false
+    t.integer  "sending_methods",                      null: false
+  end
+
+  create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "email",                                default: "", null: false
+    t.string   "encrypted_password",                   default: "", null: false
+    t.string   "nickname",               limit: 50,                 null: false
+    t.string   "first_name",             limit: 50,                 null: false
+    t.string   "last_name",              limit: 50,                 null: false
+    t.string   "first_name_kana",        limit: 50,                 null: false
+    t.string   "last_name_kana",         limit: 50,                 null: false
+    t.integer  "phone_number",                                      null: false
+    t.date     "birthday",                                          null: false
+    t.text     "icon",                   limit: 65535
+    t.text     "introduction",           limit: 65535
+    t.integer  "seller_id",                                         null: false
+    t.integer  "buyer_id",                                          null: false
+    t.string   "reset_password_token",                              null: false
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at",                               null: false
+    t.datetime "created_at",                                        null: false
+    t.datetime "updated_at",                                        null: false
+    t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+  end
 
 end
