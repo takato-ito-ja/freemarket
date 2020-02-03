@@ -52,25 +52,25 @@ Things you may want to cover:
 ## productsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|seller_id|references|null: false, foreign_key: { to_table: :users }|
 |name|string|null: false|
-|category_id|references|null: false, foreign_key: true|
+|buyed_time|timestamps||
+|description|text|null: false|
+|seller_id|references|null: false, foreign_key: { to_table: :users }|
+|buyer_id|references|foreign_key: { to_table: :users }|
 |brand_id|references|foreign_key: true|
 |price|integer|null: false|
-|description|text|null: false|
-|condition|references|null: false, foreign_key: true|
-|postage_burden|integer|null: false|
-|area_id|references|null: false, foreign_key: true|
-|scheduled_sending_date|integer|null: false|
-|size|references|foreign_key: true|
 |status|integer|null: false|
-|buyer_id|references|foreign_key: { to_table: :users }|
-|buyed_time|timestamps||
 |payment_method|integer|null: false|
 |payment_status|integer|null: false|
 |sending_status|integer|null: false|
 |recieving_status|integer|null: false|
+|size|integer|null: false|
+|category|integer|null: false|
+|condition|integer|null: false|
+|postage_burden|integer|null: false|
 |sending_methods|integer|null: false|
+|scheduled_sending_date|integer|null: false|
+|area|integer|null: false|
 
 ### Association
 - has_many :images, dependent: :destroy
@@ -82,20 +82,6 @@ Things you may want to cover:
 - belongs_to :category
 - belongs_to :brand, optional: true
 - belongs_to :area
-- belongs_to :postage_burden
-- belongs_to :scheduled_sending_date
-## postage_burdensテーブル
-|Column|Type|Options|
-|------|----|-------|
-|name|string|null: false|
-### Association
-- has_many :products
-## scheduled_sending_datesテーブル
-|Column|Type|Options|
-|------|----|-------|
-|name|string|null: false|
-### Association
-- has_many :products
 ## credit_cardsテーブル
 |Column|Type|Options|
 |------|----|-------|
@@ -124,7 +110,6 @@ Things you may want to cover:
 |------|----|-------|
 |name|string|null: false|
 ### Association
-- has_many :products
 - has_many :user_addresses
 - has_many :identity_informations
 ### add_index
