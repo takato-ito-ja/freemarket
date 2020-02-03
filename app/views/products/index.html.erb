@@ -1,8 +1,378 @@
-<ul class='lists-right'>
-  <li class='lists-right__login'>
-    <%= link_to "ログイン", new_user_session_path, class: 'post' %>
-  </li>
-  <li class='lists-right__new'>
-    <%= link_to "新規会員登録", new_user_registration_path, class: 'post' %>
-  </li>
-</ul>
+<header class='toppage-header'> 
+  <div class='header-container'>
+    <div class='header-main'>
+      <h1 class='header-main__icon'>
+        <%= link_to "#" do %>
+          <%= image_tag "/material/logo/logo.png",class:"icon" %>
+        <% end %>
+      </h1>
+      <div class='header-main__searchbox'>
+        <%= form_with(url: "#", local: true, method: :get, class: "search-form") do |form| %>
+          <%= form.text_field :keyword, placeholder: "キーワードから探す", class: "search-input" %>
+          <%= button_tag type: :submit, class: "search-icon" do %>
+            <%= image_tag "/material/icon/icon-search 1.png",class:"icon" %>
+          <% end %>
+        <% end %>
+      </div>
+      <ul class='result-lists'></ul>
+    </div>
+    <div class='nav'>
+      <ul class='lists-left'>
+        <li class='lists-left__item '>
+          <%= link_to "カテゴリー", "#",class:"link-category" %>
+          <div class="category">
+            <ul class='category__tree'>
+            <% @categories.each do |category| %>
+              <%= render partial: "category", locals: { category: category } %>
+            <% end %>
+            </ul>
+          </div>
+        </li>
+        <li class='lists-left__item'>
+          <%= link_to "ブランド", "#",class:"link-brand" %>
+          <ul class='brandsPulldown displayNone'>
+          </ul>
+        </li>
+      </ul>
+      <ul class='lists-right'>
+      <% if user_signed_in? %>
+        <li class='lists-right__login'>
+          <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+        </li>
+      <% else %>
+        <li class='lists-right__login'>
+          <%= link_to "ログイン", new_user_session_path, class: 'post' %>
+        </li>
+        <li class='lists-right__new'>
+          <%= link_to "新規会員登録", new_user_registration_path, class: 'post' %>
+        </li>
+      <% end %>
+      </ul>
+    </div>
+  </div>
+</header>
+
+<div class='toppage-main'>
+  <section class='main-visual'>
+    <div class='content'>
+      <h2 class='content__subtitle'>
+        <br>
+        人生を変えるフリマアプリ
+      </h2>
+      <p class='content__text'>
+        FURIMAはだれでもかんたんに出品・購入できる
+        <br>
+        フリマアプリです
+      </p>
+      <%# applestore,googleplayへのリンク %>
+      <div class='content__icon'>
+        <a href="#">
+          <img class="linkIcon aBtn" src="/app.png" />
+        </a>
+        <a href="#">
+          <img class="linkIcon gBtn" src="/google.png" />
+        </a>
+      </div>
+    </div>
+    <div class='picture'></div>
+  </section>
+  <section class='introduction'>
+    <h2 class='head'>
+      FURIMAが選ばれる3つの理由
+    </h2>
+    <ul class='introduction-lists'>
+      <li class='list'>
+        <div class='list__pict'>
+          <span class='number'>1</span>
+          <img src="/material/pict/pict-reason-01.jpg">
+        </div>
+        <h3 class='list__text'>
+          <span>3分</span>  ですぐに出品
+        </h3>
+        <p class='list__description'>
+          スマホで入力するだけで簡単に出品できる！
+        </p>
+      </li>
+      <li class='list'>
+        <div class='list__pict'>
+          <span class='number'>2</span>
+          <img src="/material/pict/pict-reason-02.jpg">
+        </div>
+        <h3 class='list__text'>
+          <span>シンプル</span>  で使いやすい
+        </h3>
+        <p class='list__description'>
+          めんどくさい入力は必要なく、検索も購入もスムーズ！
+        </p>
+      </li>
+      <li class='list-last'>
+        <div class='list__pict'>
+          <span class='number'>3</span>
+          <img src="/material/pict/pict-reason-03.jpg">
+        </div>
+        <h3 class='list__text'>
+          手数料  <span>業界最安</span>
+        </h3>
+        <p class='list__description'>
+          最大3%でお得に出品&購入！
+        </p>
+      </li>
+    </ul>
+  </section>
+  <section class='middle'>
+    <div class='middle-inner'>
+      <h2 class='middle-inner__subtitle'>会員数日本一位</h2>
+      <p class='middle-inner__text'>
+        FURIMAは、フリマアプリで最も人気。
+        <br>
+        出品・購入回数も業界最多です！
+        <br>
+        ほしかったあの商品に出会えるかもしれません。
+      </p>
+      <%# applestore,googleplayへのリンク %>
+      <div class='middle-inner__icon'>
+        <a href="#">
+          <img class="linkIcon aBtn" src="/app.png" />
+        </a>
+        <a href="#">
+          <img class="linkIcon gBtn" src="/google.png" />
+        </a>
+      </div>
+    </div>
+  </section>
+  <section class='features'>
+    <h2 class='head'>FURIMAの特徴</h2>
+    <div class='items'>
+      <section class='item'>
+        <figure class='item__img'>
+          <img src="/material/icon/icon-01.png">
+        </figure>
+        <h3 class='item__subtitle'>簡単に売り買いできる</h3>
+        <p class='item__detail'>
+          スマホひとつで、いつでもどこでも簡単に出品・購入が可能！
+        </p>
+      </section>
+      <section class='item'>
+        <figure class='item__img'>
+          <img src="/material/icon/icon-03.png">
+        </figure>
+        <h3 class='item__subtitle'>売上金は即日振込みに対応</h3>
+        <p class='item__detail'>
+          午前9時までに振込を依頼いただければ、翌日に指定の口座に入金いたします!
+        </p>
+      </section>
+      <section class='item'>
+        <figure class='item__img'>
+          <img src="/material/icon/icon-04.png">
+        </figure>
+        <h3 class='item__subtitle'>様々な支払いに対応</h3>
+        <p class='item__detail'>
+          お支払いは、クレジットカードだけでなく、ポイントや売上金など多彩な方法があります。
+        </p>
+      </section>
+    </div>
+  </section>
+  <section class='pickup-container'>
+    <h2 class='head'>ピックアップカテゴリー</h2>
+    <div class='product-box'>
+      <div class='product-head'>
+        <%= link_to "新規投稿商品","#", class: "title"%>
+      </div>
+      <div class="product-lists">
+        <div class='product-list'>
+          <%= link_to "",class:"box" do %>
+            <figure class="product-list__img">
+              <%= image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png",class:"img" %>
+            </figure>
+            <div class='product-list--body'>
+              <h3 class='name'>product3</h3>
+              <div class='details'>
+                <ul>
+                  <li>30000円</li>
+                  <li>
+                    <i class="fas fa-star"></i> 0
+                  </li>
+                </ul>
+                <p>(税込)</p>
+              </div>
+            </div>
+          <% end %>
+        </div>
+        <div class='product-list'>
+          <%= link_to "",class:"box" do %>
+            <figure class="product-list__img">
+              <%= image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png",class:"img" %>
+            </figure>
+            <div class='product-list--body'>
+              <h3 class='name'>product3</h3>
+              <div class='details'>
+                <ul>
+                  <li>30000円</li>
+                  <li>
+                    <i class="fa fa-star likeIcon"></i> 0
+                  </li>
+                </ul>
+                <p>(税込)</p>
+              </div>
+            </div>
+          <% end %>
+        </div>
+        <div class='product-list'>
+          <%= link_to "",class:"box" do %>
+            <figure class="product-list__img">
+              <%= image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png",class:"img" %>
+            </figure>
+            <div class='product-list--body'>
+              <h3 class='name'>product3</h3>
+              <div class='details'>
+                <ul>
+                  <li>30000円</li>
+                  <li>
+                    <i class="fa fa-star likeIcon"></i> 0
+                  </li>
+                </ul>
+                <p>(税込)</p>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class='pickup-container'>
+    <h2 class='head'>ピックアップブランド</h2>
+    <div class='product-box'>
+      <div class='product-head'>
+        <%= link_to "アーカイバ","#", class: "title"%>
+      </div>
+      <div class="product-lists">
+        <div class='product-list'>
+          <%= link_to "",class:"box" do %>
+            <figure class="product-list__img">
+              <%= image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png",class:"img" %>
+            </figure>
+            <div class='product-list--body'>
+              <h3 class='name'>product3</h3>
+              <div class='details'>
+                <ul>
+                  <li>30000円</li>
+                  <li>
+                    <i class="fa fa-star likeIcon"></i> 0
+                  </li>
+                </ul>
+                <p>(税込)</p>
+              </div>
+            </div>
+          <% end %>
+        </div>
+        <div class='product-list'>
+          <%= link_to "",class:"box" do %>
+            <figure class="product-list__img">
+              <%= image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png",class:"img" %>
+            </figure>
+            <div class='product-list--body'>
+              <h3 class='name'>product3</h3>
+              <div class='details'>
+                <ul>
+                  <li>30000円</li>
+                  <li>
+                    <i class="fa fa-star likeIcon"></i> 0
+                  </li>
+                </ul>
+                <p>(税込)</p>
+              </div>
+            </div>
+          <% end %>
+        </div>
+        <div class='product-list'>
+          <%= link_to "",class:"box" do %>
+            <figure class="product-list__img">
+              <%= image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png",class:"img" %>
+            </figure>
+            <div class='product-list--body'>
+              <h3 class='name'>product3</h3>
+              <div class='details'>
+                <ul>
+                  <li>30000円</li>
+                  <li>
+                    <i class="fa fa-star likeIcon"></i> 0
+                  </li>
+                </ul>
+                <p>(税込)</p>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+<aside class='app-banner'>
+  <div class='inner'>
+    <h2 class='inner__title'>だれでもかんたん、人生を変えるフリマアプリ</h2>
+    <p class='inner__text'>今すぐ無料ダウンロード！</p>
+    <%# applestore,googleplayへのリンク %>
+    <div class='inner__icon'>
+      <a href="#">
+        <img class="linkIcon aBtn" src="/app.png" />
+      </a>
+      <a href="#">
+        <img class="linkIcon gBtn" src="/google.png" />
+      </a>
+    </div>
+  </div>
+</aside>
+
+<div class='toppage-footer'>
+  <ul class='footer-contents'>
+    <li class='content'>
+      <h2 class='content__head'>FURIMAについて</h2>
+      <ul>
+        <li>
+          <%= link_to "会社概要（運営会社）", "#" %>
+        </li>
+        <li>
+          <%= link_to "プライバシーポリシー", "#" %>
+        </li>
+        <li>
+          <%= link_to "FURIMA利用規約", "#" %>
+
+        </li>
+        <li>
+          <%= link_to "ポイントに関する特約", "#" %>
+        </li>
+      </ul>
+    </li>
+    <li class='content'>
+      <h2 class='content__head'>FURIMAを見る</h2>
+      <ul>
+        <li>
+          <%= link_to "カテゴリー一覧", "#" %>
+        </li>
+        <li>
+          <%= link_to "ブランド一覧", "#" %>
+        </li>
+      </ul>
+    </li>
+    <li class='content'>
+      <h2 class='content__head'>ヘルプ＆ガイド</h2>
+      <ul>
+        <li>
+          <%= link_to "FURIMAガイド", "#" %>
+        </li>
+        <li>
+          <%= link_to "FURIMAロゴ利用ガイドライン", "#" %>
+        </li>
+        <li>
+          <%= link_to "お知らせ", "#" %>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+<%= link_to new_product_path do %>
+  <div class='purchase-btn'>
+    <span class='purchase-btn__text'>出品する</span>
+    <img class="purchase-btn__icon" src="/material/icon/icon_camera.png">
+  </div>
+<% end %>
