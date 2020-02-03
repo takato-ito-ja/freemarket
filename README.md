@@ -58,6 +58,8 @@ Things you may want to cover:
 |seller_id|references|null: false, foreign_key: { to_table: :users }|
 |buyer_id|references|foreign_key: { to_table: :users }|
 |brand_id|references|foreign_key: true|
+|category_id|references|foreign_key: true|
+|area_id|references|foreign_key: true|
 |price|integer|null: false|
 |status|integer|null: false|
 |payment_method|integer|null: false|
@@ -65,13 +67,10 @@ Things you may want to cover:
 |sending_status|integer|null: false|
 |recieving_status|integer|null: false|
 |size|integer|null: false|
-|category|integer|null: false|
 |condition|integer|null: false|
 |postage_burden|integer|null: false|
 |sending_methods|integer|null: false|
 |scheduled_sending_date|integer|null: false|
-|area|integer|null: false|
-
 ### Association
 - has_many :images, dependent: :destroy
 - accepts_nested_attributes_for :images, allow_destroy: true
