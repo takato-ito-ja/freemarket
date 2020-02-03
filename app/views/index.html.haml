@@ -1,0 +1,76 @@
+-# - breadcrumb :notifications, @notifications
+.wrapper
+  .container__mypage
+    = render "frima/side_bar"
+    .container__mypage__content
+      .container__mypage__news
+        .news-tab__profile
+          %figure
+            = image_tag "mypage profile.png"
+          .news-tab__profile__icon
+            %figure
+            = image_tag "member_photo.png", class: 'member_photo'
+            .news-tab__profile__icon__user
+        %ul.news-tab
+          %li.news-tab__active
+            .news-tab__active__notice
+              お知らせ
+          %li.news-tab__activelist
+            .news-tab__activelist__notice
+              やることリスト
+      .new
+        .new__news
+          .new__news__contents-image
+        .new__content
+          .new__content__message
+            %figure
+              = image_tag "logo.png"
+            .new__content__message__text  
+              友達を招待したら必ずポイントがもらえるキャンペーン開催中
+            %i.fa.fa-chevron-right
+          .new__content__message
+            %figure
+              = image_tag "logo.png"
+            .new__content__message__text
+              事務局から個別メッセージ「ログイン通知」
+            %i.fa.fa-chevron-right
+          .new__content__message
+            %figure
+              = image_tag "logo.png"
+            .new__content__message__text
+              事務局から個別メッセージ「ログイン通知」
+            %i.fa.fa-chevron-right
+          .new__content__message
+            %figure
+              = image_tag "logo.png"
+            .new__content__message__text
+              最大P1,000がもらえるキャンペーンが開催中
+            %i.fa.fa-chevron-right
+          .new__content__message
+            %figure
+              = image_tag "logo.png"
+            .new__content__message__text
+              友達を招待したら必ずポイントがもらえるキャンペーン開催中！
+            %i.fa.fa-chevron-right
+        .new__content__go-list
+          一覧をみる
+    .container__mypage__content
+      .container__mypage__news
+        %ul.news-tab
+          %li.news-tab__active
+            .news-tab__active__notice
+              取引中
+          %li.news-tab__activelist
+            .news-tab__activelist__notice
+              過去の取引
+    .new
+      .new__news
+        .new__news__contents-image
+      .new__content
+        .new__content__message
+          %figure
+            = image_tag "logo-white_160.png", class:'logo-white_160'
+          .new__content__message__deal  
+            取引中の商品はありません
+
+-# =render "frima/cameraicon"

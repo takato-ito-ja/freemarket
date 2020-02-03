@@ -1,0 +1,265 @@
+body {
+    position: relative;
+    min-height: 100%;
+    font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
+    font-size: 14px;
+    color: rgb(51, 51, 51);
+    line-height: 1;
+    background:rgb(245, 245, 245);
+}
+
+.container__mypage {
+  width: 1020px;
+  margin: 40px auto 0;
+  &__content {
+   width: 700px;
+   margin-top: 35px;
+   padding-left: 180px;
+    &-usericon {
+      height:200px;
+      position: relative;
+      background-image: image-url("kirakira.jpg");
+      padding-top: 70px;
+      background-repeat: no-repeat;
+      img {
+        border-radius: 50%; 
+        margin-left: 320px;
+        height: 60px;
+        width: 60px;
+      }
+      .user {
+        font-weight: bold;
+        height: 30px;
+        text-align: center;
+        a{
+          color: black;
+        }
+      }
+       .user-number {
+        width: 500px;
+        font-weight: 545;
+        padding-left: 290px;
+        .user-number-evaluation {
+          width:70px;
+          height: 16px;
+          float: left;
+        }
+        .user-number-exhibitin {
+          width:70px;
+          height: 16px;
+          display: inline-block
+        }
+      }
+    }
+    .news{
+      margin: 0;
+      margin-inline-end: unset;
+      margin-inline-start: unset;
+      &-tab{
+        background-color:#eee;
+        display:flex;
+        list-style: none;
+        padding-inline-start: unset;
+        &__profile {
+          position:relative;
+          border-radius: 70px;
+          width: 60%;
+          &__icon {
+            position: absolute;
+             top: 20px;
+             left: 300px;
+            }
+            }
+        &__active{
+          font-size: 22px;
+          font-weight:600px;
+          width: 50%;
+          text-align:center;
+          background-color: white;
+          height: 74px;
+          line-height: 330%;
+          border: none;
+          cursor: pointer;
+          &__notice{
+            display: inline-block;
+            width: 100%;
+            border-top: 2px solid rgb(50, 212, 204);
+            font-size: 16px;
+            &:hover{
+              color:gray;
+            }
+          }
+        }
+        &__activelist{
+          background-color: #eee;
+          font-size: 22px;
+          font-weight:600px;
+          width: 50%;
+          text-align:center;
+          line-height: 330%;
+          border: none;
+          cursor: pointer;
+          &__notice{
+            font-size:16px;
+            &:hover{
+              color: gray;
+            }
+          }
+        }
+      }
+    }
+    .new{
+      background-repeat: no-repeat;
+      margin: 0;
+      padding: 0;
+      &__news{
+        display: none;
+        height: 236px;
+        width:700px;
+        background-image: image-url("mypage.yarukotolist.png");
+        &_contents-image{
+          height: 200px;
+          width:600px;
+          background-size: 80px;
+        }
+      }
+      &__content{
+        display: block;
+        &__message{
+          border: 1px solid #eee;
+          min-height: 70px;
+          padding: 10px;
+          color:#333;
+          background-color: white;
+          display: flex;
+          position: relative;
+          &:hover{
+            background-color: #eee;
+          }
+          img{
+            width: 50px;
+            height: 50px;
+          }
+          .fa.fa-chevron-right{
+            margin-right: 40px;
+            float: right;
+            position: absolute;
+            top:50%;
+            right: 16px;
+          }
+          .fa.fa-chevron-right:before {
+            content: url(./arrow.png);
+          }
+          &__text{
+            padding-top: 30px;
+            padding-left: 40px;
+          }
+      }
+      }
+
+        }
+        &__message__all{
+          border: 0;
+          &_buttom{
+            display:block;
+            height: 56px;
+            margin: 0 auto;
+            background-color: #eee;
+            color: black;
+            line-height: 56px;
+            text-align: center;
+            &:hover{
+              background-color:#fafafa;
+            } 
+          }  
+        }
+      }
+    }
+    .content-buy{
+      margin: 40px 0 0;
+      background:header-background;
+      border: 1px solid #eee;
+      &-head{
+        padding: 0 16px;
+        background-color: #fafafa;
+        font-size:16px;
+        line-height:72px;
+        font-weight: bold;
+      }
+      &-tab{
+        border:0px;
+        background: #eee;
+        height: 72px;
+        display: flex;
+        &-new{
+          
+         font-size: 16px;
+         font-weight:600;
+         width:50%;
+         text-align: center;
+         
+         line-height: 5;
+         &__latest{
+           &:hover{
+             color:silver;
+           }
+         }
+        }
+        &-low{
+          border-top:2px solid red;
+          background-color:white;
+          width: 50%;
+          font-size: 16px;
+          font-weight: 600px;
+          line-height: 5;
+          text-align: center;
+          &__past{
+            font-weight: bold;
+            &:hover{
+              color: silver;
+            }
+          }
+        }
+      }
+      &-buttom{
+        width: 500px;;
+        background-repeat: no-repeat;
+        margin-left: 150px;
+        background-size: 70%;
+      }    
+    }
+.new__content__go-list {
+  display: block;
+  height: 56px;
+  margin: 0 auto;
+  background: #eee;
+  color: #333;
+  line-height: 56px;
+  text-align: center;
+  margin-top: 30px;
+}
+
+figure {
+    display: block;
+    margin-inline-start: unset;
+    margin-inline-end: unset;
+    margin-bottom: unset;
+}
+
+
+.member_photo {
+  border-radius: 70px;
+  width: 60%;
+}
+
+.logo-white_160 {
+  margin-left: 400px;
+  padding-top: 100px;
+  text-align: center;
+}
+
+.new__content__message__deal {
+  margin-left: 400px;
+  margin-top: 80px;
+}
+ 
