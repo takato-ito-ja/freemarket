@@ -1,0 +1,12 @@
+.login-container
+  .sign-up
+    .sign-up__text
+      アカウントをお持ちでない方はこちら
+    .sign-up__link
+      = link_to "新規会員登録", new_user_registration_path, class: 'post'
+  .login-menu
+    = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+      .login-menu__mail-form
+        = f.email_field :email, autofocus: true, autocomplete: "email", class: "mail-form", placeholder: "   メールアドレス"
+      .login-menu__btn
+        = f.submit "ログイン",class: "btn"
