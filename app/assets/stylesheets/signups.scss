@@ -1,0 +1,46 @@
+.container {
+  background-color: whitesmoke;
+
+  .main {
+    height: calc(100vh - 128px - 220px);
+    background-color: whitesmoke;
+
+    .inner {
+      width: 700px;
+      margin: 0 auto;
+      background-color: white;
+
+      h2 {
+        font-size: 22px;
+        padding: 32px;
+        text-align: center;
+        font-weight: bold;
+      }
+
+      .inner-form {
+        padding: 24px 16px;
+        margin: 0 165px;
+        background-color: white;
+
+        .mail-btn {
+          font-size: 14px;
+          color: white;
+          text-decoration: none;
+          background-color: #ea352d;
+          display: block;
+          width: 100%;
+          line-height: 48px;
+          border: 1px solid transparent;
+          transition: all ease-out 3s;
+          cursor: pointer;
+          text-align: center;
+        }
+        .inner-form__content {
+          width: 343px;
+          background-color: red;
+        }
+      }
+
+    }
+  }
+}
