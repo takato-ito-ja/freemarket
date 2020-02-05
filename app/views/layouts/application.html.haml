@@ -8,8 +8,10 @@
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body
     %header.header
-      = image_tag '/material/logo/logo.png'
+      = link_to "/" do
+        = image_tag '/material/logo/logo.png'
     %main= yield
     %footer.footer
-      = image_tag '/material/logo/logo-white.png'
+      = link_to "/" do
+        = image_tag '/material/logo/logo-white.png'
       %p © FURIMA
