@@ -26,6 +26,8 @@
         - if user_signed_in?
           %li.lists-right__login
             = link_to "ログアウト", destroy_user_session_path, method: :delete
+          %li.lists-right__new
+            = link_to "マイページ", "/signups/#{current_user.id}", class: 'post'
         - else
           %li.lists-right__login
             = link_to "ログイン", new_user_session_path, class: 'post'
