@@ -10,6 +10,8 @@ $(function () {
     return option
   }
 
+
+  
   $('.sell__image-select__ul-text').on('change', 'input[type="file"]', function (e) {
     var id = $(this).data('id'),
       file = e.target.files[0],
@@ -50,6 +52,7 @@ $(function () {
     $(this).parent().parent().css('opacity', '0');
     return false;
   });
+
 
 
 

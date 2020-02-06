@@ -10,22 +10,19 @@ class Product < ApplicationRecord
   belongs_to :brand, optional: true
   belongs_to :area, optional: true
 
-  # validates :name,                    presence: true
-  # validates :description,             presence: true
-  # validates :category_id,             presence: true
-  # validates :category,                presence: true
-  # validates :price,                   presence: true
-  # validates :condition,               presence: true
-  # validates :sending_methods,         presence: true
-  # validates :status,                  presence: true
-  # validates :area_id,                 presence: true
-  # validates :sending_status,          presence: true
-  # validates :fee_payer,               presence: true
-  # validates :scheduled_sending_date,  presence: true
-  # validates :postage_burden,          presence: true
-  # validates :payment_method,          presence: true
-  # validates :payment_status,          presence: true
-  # validates :recieving_status,        presence: true
+  validates :name,                    presence: true
+  validates :description,             presence: true
+  validates :category_id,             presence: true
+  validates :price,                   presence: true
+  validates :condition,               presence: true
+  validates :sending_method,         presence: true
+  validates :status,                  presence: true
+  validates :area_id,                 presence: true
+  validates :sending_status,          presence: true
+  validates :scheduled_sending_date,  presence: true
+  validates :postage_burden,          presence: true
+  validates :payment_status,          presence: true
+  validates :recieving_status,        presence: true
 
   enum size: [:"XS以下", :"S", :"M", :"L", :"XL",:"XL以上",:"FREE_SIZE"]
   enum condition: [ :"新品、未使用", :"未使用に近い", :"目立った傷や汚れなし",:"やや傷や汚れあり",:"傷や汚れあり", :"全体的に状態が悪い"]
