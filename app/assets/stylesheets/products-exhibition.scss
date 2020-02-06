@@ -1,4 +1,4 @@
-.container {
+.container1 {
   padding: 0 0 220px;
   display: block;
   background-color: #EEEEEE	;
@@ -16,14 +16,21 @@
     content: '必須';
     color: white;
     background-color: red;
-    padding: 5px;
-
+    padding: 2px 4px;
+    border-radius: 2px;
+    font-size: 12px;
+    margin: 0 0 0 8px;
+    vertical-align: top;
   }
   .required-gray::after {
     content: '任意';
     color: white;
-    background-color: gray;
-    padding: 5px;
+    background-color: #ccc;
+    margin: 0 0 0 8px;
+    padding: 2px 4px;
+    border-radius: 2px;
+    font-size: 12px;
+    vertical-align: top;
   }
 
   .sell {
@@ -37,6 +44,8 @@
       line-height: 1.5;
       text-align: center;
       border-top: solid 1px #EEEEEE;
+      padding-top: 25px;
+      font-size: 25px;
     }
     &__image {
       padding: 40px;
@@ -53,13 +62,6 @@
         display: none;
       }
       &-select {
-        // position: relative;
-        // min-height: 162px;
-        // padding: 40px;
-        // background-color: #f5f5f5;
-        // border: 1px dashed #ccc;
-        // margin-top: 16px;
-        // text-align: center;
         position: relative;
         width: 622px;
         min-height: 162px;
@@ -113,15 +115,6 @@
               }
             }
           }
-       // & .text {
-        //   position: absolute;
-        //   left: 16px;
-        //   right: 16px;
-        //   top: 37%;
-        //   line-height: 1.5;
-        //   font-size: 14px;
-        //   font-weight: 550;
-        // }
         }
       }
     }
@@ -164,6 +157,7 @@
             width: 100%;
             margin-top: 8px;
             & select {
+              position: relative;
               padding: 0 16px;
               width: 100%;
               height: 48px;
@@ -182,31 +176,32 @@
             &-label {
             }
             &-input {
+              display: flex;
               height: 100%;
               width: 150px;
-                &-price {
-                  display: inline-block;
-                  height: 100%;              
-                  background-color: white;
-                  text-align: left;
-                  & input {
-                    height: 100%;
-                    text-align: right;
-                    &::placeholder {
-                      text-align: right;
-                      font-size: 20px;
-                    }
-                  }
-                }                
-              & .form {
-                margin-top: 0;
+              font-size: 20px;
+              .text1 {
+                margin-top:15px;
+              }
+              .sell__about__right__wrap__price-input-form{
+                margin-left:10px;
+                .form1 {
+                  padding-right: 0px;
+                  width: 100%;
+                  height: 48px;
+                  border: 1px solid #ccc;
+                  border-radius: 4px;
+                  font-size: 16px;
+                  text-align: right;
+                }
               }
             }
           }
           &__fee {
             height: 40px;
             padding: 24px 0;
-            border-top: 1px solid ;
+            border-top: 1px solid #ccc;
+
             &-left {
               float: left;
             }
@@ -217,7 +212,7 @@
           &__profit {
             height: 83px;
             padding: 24px 0;
-            border-top: 1px solid ;
+            border-top: 1px solid #ccc;
             font-weight: 600;
             &-left {
               float: left;
@@ -240,35 +235,41 @@
           }
         }
       }
-    }
-  }  
-    .sell__about__bottom-botan{
-    width: 100%;
-      .botan-b {
-        margin-top: 40px;
-        background-color: red;
-        display: block;
-        height: 50px;
-        line-height: 50px;
-        text-align: center;
-        font-size: 14px;
-        color: white;
+      .sell__about__bottom-botan{
+        width: 100%;
+        .botan-b {
+          margin-top: 40px;
+          background-color: #ea352d;
+          display: block;
+          height: 50px;
+          line-height: 50px;
+          text-align: center;
+          font-size: 14px;
+          color: white;
+          width: 100%;
         }
-      .botan-c {
-        width: 45%;
-        margin-top: 40px;
-        margin-left:170px;
-        background-color: gray;
-        display: block;
-        height: 50px;
-        line-height: 50px;
-        text-align: center;
-        font-size: 14px;
-        color: white;     
+        .botan-c {
+          width: 45%;
+          margin-top: 40px;
+          margin-left:170px;
+          background-color: gray;
+          display: block;
+          height: 50px;
+          line-height: 50px;
+          text-align: center;
+          font-size: 14px;
+          color: white;     
         }
+      }
+    }   
+    .fas.fa-chevron-down{
+      position: absolute;
+      top: 18px;
+      right: 8px;
     }
-  a {
-    color: lightblue;
-    text-decoration: none;
+    a {
+      color: lightblue;
+      text-decoration: none;
+    }
   }
 }
