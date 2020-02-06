@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200203104344) do
+ActiveRecord::Schema.define(version: 20200206035020) do
 
   create_table "areas", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name",       null: false
@@ -31,32 +31,39 @@ ActiveRecord::Schema.define(version: 20200203104344) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "images", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "product_id"
+    t.text     "image_url",  limit: 65535
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.index ["product_id"], name: "index_images_on_product_id", using: :btree
+  end
+
   create_table "products", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer  "seller_id_id",                         null: false
-    t.string   "name",                                 null: false
-    t.integer  "price",                                null: false
-    t.text     "description",            limit: 65535, null: false
-    t.integer  "condition",                            null: false
-    t.integer  "postage_burden",                       null: false
-    t.integer  "scheduled_sending_date",               null: false
-    t.integer  "size",                                 null: false
-    t.integer  "status",                               null: false
-    t.integer  "buyer_id_id"
+    t.integer  "seller_id"
+    t.integer  "buyer_id"
+    t.string   "name"
+    t.integer  "price"
+    t.text     "description",            limit: 65535
+    t.integer  "condition"
+    t.integer  "postage_burden"
+    t.integer  "scheduled_sending_date"
+    t.integer  "size"
+    t.integer  "status"
+    t.integer  "payment_status"
+    t.integer  "sending_status"
+    t.integer  "recieving_status"
+    t.integer  "sending_method"
     t.datetime "created_at",                           null: false
     t.datetime "updated_at",                           null: false
-    t.integer  "payment_method",                       null: false
-    t.integer  "payment_status",                       null: false
-    t.integer  "sending_status",                       null: false
-    t.integer  "recieving_status",                     null: false
-    t.integer  "sending_methods",                      null: false
     t.integer  "category_id"
     t.integer  "brand_id"
     t.integer  "area_id"
     t.index ["area_id"], name: "index_products_on_area_id", using: :btree
     t.index ["brand_id"], name: "index_products_on_brand_id", using: :btree
-    t.index ["buyer_id_id"], name: "index_products_on_buyer_id_id", using: :btree
+    t.index ["buyer_id"], name: "index_products_on_buyer_id", using: :btree
     t.index ["category_id"], name: "index_products_on_category_id", using: :btree
-    t.index ["seller_id_id"], name: "index_products_on_seller_id_id", using: :btree
+    t.index ["seller_id"], name: "index_products_on_seller_id", using: :btree
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -67,7 +74,7 @@ ActiveRecord::Schema.define(version: 20200203104344) do
     t.string   "last_name",                                         null: false
     t.string   "first_name_kana",                                   null: false
     t.string   "last_name_kana",                                    null: false
-    t.integer  "phone_number",                                      null: false
+    t.string   "phone_number",                                      null: false
     t.date     "birthday"
     t.text     "icon",                   limit: 65535
     t.text     "introduction",           limit: 65535
@@ -80,9 +87,10 @@ ActiveRecord::Schema.define(version: 20200203104344) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "images", "products"
   add_foreign_key "products", "areas"
   add_foreign_key "products", "brands"
   add_foreign_key "products", "categories"
-  add_foreign_key "products", "users", column: "buyer_id_id"
-  add_foreign_key "products", "users", column: "seller_id_id"
+  add_foreign_key "products", "users", column: "buyer_id"
+  add_foreign_key "products", "users", column: "seller_id"
 end
