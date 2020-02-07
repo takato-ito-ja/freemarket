@@ -1,6 +1,7 @@
 class ProductsController < ApplicationController
   # before_action :set_product, only: [:edit, :update, :show, :show_mine, :destroy]
   def index
+    @products = Product.all
   end
 
   def new
