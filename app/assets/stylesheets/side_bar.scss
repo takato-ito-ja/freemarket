@@ -1,6 +1,7 @@
 nav ul {
     list-style: none;
     text-decoration: none;
+    padding-left: 20%;
 }
 .l-side-bar{
     &__list-item {
@@ -11,13 +12,29 @@ nav ul {
     background: #fff;
     font-size: 14px;
     color: #333;
-    .fa.fa-chevron-right:before {
+    width:80%;
+    di
+    &.fa.fa-chevron-right{
+      display: block;
       content: url(./arrow.png);
-      float: right;
+      position: absolute;
+      right: 50px;
 }
 }
 }
 a:-webkit-any-link {
     text-decoration: none;
     color:#333;
+}
+
+h3 {
+    padding-top: 20px;
+    padding-bottom: 10px;
+    padding-left: 20%;
+}
+
+.fa-chevron-right:before {
+    content: "";
+    position: absolute;
+    right: 50px;
 }
