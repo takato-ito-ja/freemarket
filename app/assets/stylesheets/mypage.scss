@@ -9,10 +9,10 @@ body {
 }
 
 .container__mypage {
-  width: 1020px;
+  width: 100%;
   margin: 40px auto 0;
   &__content {
-   width: 700px;
+   width: 90%;
    margin-top: 35px;
    padding-left: 180px;
     &-usericon {
@@ -63,11 +63,11 @@ body {
         &__profile {
           position:relative;
           border-radius: 70px;
-          width: 60%;
+          width: 130%;
           &__icon {
             position: absolute;
-             top: 20px;
-             left: 300px;
+             top: 10%;
+             left: 30%;
             }
             }
         &__active{
@@ -125,7 +125,7 @@ body {
       }
       &__content{
         display: block;
-        &__message{
+        &__message {
           border: 1px solid #eee;
           min-height: 70px;
           padding: 10px;
@@ -145,17 +145,24 @@ body {
             float: right;
             position: absolute;
             top:50%;
-            right: 16px;
+            right: 1%;
           }
-          .fa.fa-chevron-right:before {
+          &.fa.fa-chevron-right{
             content: url(./arrow.png);
           }
           &__text{
-            padding-top: 30px;
-            padding-left: 40px;
+            padding: 5%;
+            width: 60%;
           }
-      }
-      }
+        &__deal{
+          display: block;
+          margin-left: 30%;
+          margin-top: 80px;
+          margin-top: 30px;
+          margin-bottom: 30px;
+          }
+          }
+          }
 
         }
         &__message__all{
@@ -250,16 +257,24 @@ figure {
 .member_photo {
   border-radius: 70px;
   width: 60%;
+  margin: 30%;
 }
 
 .logo-white_160 {
-  margin-left: 400px;
+  // margin-left: 400px;
   padding-top: 100px;
   text-align: center;
+  width:30%;
+  margin-left: 40%;
 }
 
-.new__content__message__deal {
-  margin-left: 400px;
-  margin-top: 80px;
+img {
+  width:77%;
 }
- 
+.new__content__message__deal {
+  display: block;
+  margin-left: 45%;
+  margin-top: 80px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
