@@ -77,67 +77,31 @@
         %h3.item__subtitle 様々な支払いに対応
         %p.item__detail
           お支払いは、クレジットカードだけでなく、ポイントや売上金など多彩な方法があります。
+.toppage-main2
   %section.pickup-container
     %h2.head ピックアップカテゴリー
     .product-box
-      - @products.each do |product|
-        .main-products__items-box__list
-          = link_to "", class: "product_item__link" do
-            %figure
-            .main-products__items-box__list--sold-out
-              = image_tag product.images[0].image_url
-              - unless product.status == 0
-                .main-products__items-box__list--sold-out--box
-                .main-products__items-box__list--sold-out--text SOLD
-            .product_item__link__information
-              %h3 #{product.name}
-              .product_item__link__information__num
-                -# .product_item__link__information__num--price ¥#{converting_to_jpy(product.price)}
-                .product_item__link__information__num--good
-                %h3 #{product.price}円
-                %h3 #{product.condition}
-                %p (税込)
-      -#   = link_to "新規投稿商品","#", class: "title"
-      -# .product-lists
-      -#   .product-list
-      -#     = link_to "",class:"box" do
-      -#       %figure.product-list__img
-      -#         = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png",class:"img"
-      -#       .product-list--body
-      -#         %h3.name product3
-      -#         .details
-      -#           %ul
-      -#             %li 30000円
-      -#             %li
-      -#               %i.fas.fa-star
-      -#               0
-      -#           %p (税込)
+      .product-head
+        = link_to "新規投稿商品","#", class: "title"
+      .product-lists
         .product-list
-          = link_to "",class:"box" do
-            %figure.product-list__img
-              = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png",class:"img"
-            .product-list--body
-              %h3.name product3
-              .details
-                %ul
-                  %li 30000円
-                  %li
-                    %i.fa.fa-star.likeIcon
-                    0
-                %p (税込)
-        .product-list
-          = link_to "",class:"box" do
-            %figure.product-list__img
-              = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png",class:"img"
-            .product-list--body
-              %h3.name product3
-              .details
-                %ul
-                  %li 30000円
-                  %li
-                    %i.fa.fa-star.likeIcon
-                    0
-                %p (税込)
+          - @products.each do |product|
+            = link_to "", class: "box" do
+              %figure.product-list__img
+                = image_tag product.images[0].image_url,class:"img"
+                - unless product.status == 0
+                  .main-products__items-box__list--sold-out--box
+                  .main-products__items-box__list--sold-out--text SOLD
+              .product-list--body
+                %h3 #{product.name}
+                -# .product_item__link__information__num
+                  -# .product_item__link__information__num--price ¥#{converting_to_jpy(product.price)}
+                .details  
+                  %ul
+                    %li #{product.price}円
+                    -# %li #{product.condition}
+                    %li
+                  %p (税込)
   %section.pickup-container
     %h2.head ピックアップブランド
     .product-box
