@@ -85,7 +85,7 @@
           = link_to "", class: "product_item__link" do
             %figure
             .main-products__items-box__list--sold-out
-              = image_tag product.images[0].image_url
+              -# = image_tag %product.images.image_url
               - unless product.status == 0
                 .main-products__items-box__list--sold-out--box
                 .main-products__items-box__list--sold-out--text SOLD

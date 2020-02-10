@@ -20,6 +20,8 @@ class ProductsController < ApplicationController
     @product = Product.find_by(id: params[:id])
     @seller = User.find_by(id: @product.seller_id)
   end
+
+
     private
   def set_product
     @product = Product.find(params[:product_id])
