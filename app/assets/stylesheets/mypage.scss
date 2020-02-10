@@ -133,6 +133,7 @@ body {
             background-color: white;
             display: flex;
             position: relative;
+            margin: auto;
             &:hover{
               background-color: #eee;
             }
@@ -199,9 +200,7 @@ body {
           &-new{
             font-size: 16px;
             font-weight:600;
-
-            text-align: center;
-            
+            text-align: center;            
             line-height: 5;
             &__latest{
               &:hover{
@@ -257,11 +256,8 @@ body {
   }
 
   .logo-white_160 {
-    // margin-left: 400px;
-    padding-top: 100px;
-    text-align: center;
     width:30%;
-    margin-left: 40%;
+    margin: 10% 40%;
   }
 
   .profile-image {
