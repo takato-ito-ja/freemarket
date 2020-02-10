@@ -1,23 +1,22 @@
 -# - breadcrumb :notifications, @notifications
-.wrapper
+.wrapper3
   .container__mypage
     = render "/signups/side_bar"
     .container__mypage__content
-      .container__mypage__news
-        .news-tab__profile
+      .news-tab__profile
+        %figure
+          = image_tag "mypage profile.png", class: 'profile-image'
+        .news-tab__profile__icon
           %figure
-            = image_tag "mypage profile.png", class: 'profile-image'
-          .news-tab__profile__icon
-            %figure
-            = image_tag "member_photo.png", class: 'member_photo'
-            .news-tab__profile__icon__user
-        %ul.news-tab
-          %li.news-tab__active
-            .news-tab__active__notice
-              お知らせ
-          %li.news-tab__activelist
-            .news-tab__activelist__notice
-              やることリスト
+          = image_tag "member_photo.png", class: 'member_photo'
+          .news-tab__profile__icon__user
+      %ul.news-tab
+        %li.news-tab__active
+          .news-tab__active__notice
+            お知らせ
+        %li.news-tab__activelist
+          .news-tab__activelist__notice
+            やることリスト
       .new
         .new__news
           .new__news__contents-image
