@@ -135,6 +135,19 @@
               margin-top: 20px;
             }
           }
+          .buy-btn {
+            text-align: center;
+            line-height: 60px;
+            background-color: #3ccace;
+            margin-top: 20px;
+            border-radius: 30px;
+            a {
+              text-decoration: none;
+              color: white;
+              font-size: 20px;
+              font-weight: bold;
+            }
+          }
         }
         .comment-box {
           padding: 24px;
