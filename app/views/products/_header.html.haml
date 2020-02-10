@@ -1,0 +1,35 @@
+%header.toppage-header
+  .header-container
+    .header-main
+      %h1.header-main__icon
+        = link_to "#" do
+          = image_tag "/material/logo/logo.png",class:"icon"
+      .header-main__searchbox
+        -# = form_for  do |form|
+        -#   = form.text_field :keyword, placeholder: "キーワードから探す", class: "search-input"
+        -#   = button_tag type: :submit, class: "search-icon" do
+        -#     = image_tag "/material/icon/icon-search 1.png",class:"icon"
+        %input 
+      %ul.result-lists
+    .nav
+      %ul.lists-left
+        %li.lists-left__item
+          = link_to "カテゴリー", "#",class:"link-category"
+          .category
+            %ul.category__tree
+              -# - @categories.each do |category|
+              -#   = render partial: "category", locals: { category: category }
+        %li.lists-left__item
+          = link_to "ブランド", "#",class:"link-brand"
+          %ul.brandsPulldown.displayNone
+      %ul.lists-right
+        - if user_signed_in?
+          %li.lists-right__login
+            = link_to "ログアウト", destroy_user_session_path, method: :delete
+          %li.lists-right__new
+            = link_to "マイページ", signup_path(current_user.id), class: 'post'
+        - else
+          %li.lists-right__login
+            = link_to "ログイン", new_user_session_path, class: 'post'
+          %li.lists-right__new
+            = link_to "新規会員登録", new_signup_path, class: 'post'
