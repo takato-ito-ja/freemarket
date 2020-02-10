@@ -27,6 +27,22 @@
         font-weight: bold;
       }
 
+      #error_explanation{
+        color: red;
+        margin: 20px 0;
+        &__info{
+          border: solid 1px;
+          &__string{
+            margin: 10px;
+          }
+        }
+        
+      }
+
+      #error_explanation li{
+        margin: 10px;
+      }
+
       .new_user {
         padding: 24px 16px;
         margin: 0 165px;
