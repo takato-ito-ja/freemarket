@@ -7,9 +7,7 @@
         %span.required
         %p.max 最大5枚までアップロードできます
         .sell__image-select
-          ドラッグアンドドロップ
-          %br
-          またはクリックしてファイルをアップロード
+          ここをクリックしてファイルをアップロード
           %ul.sell__image-select__ul
             - @product.images.each_with_index do |image, i|
               %label{class: "sell__image-select__ul-text ul-id-#{i}"}

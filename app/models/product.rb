@@ -15,7 +15,7 @@ class Product < ApplicationRecord
   validates :category_id,             presence: true
   validates :price,                   presence: true
   validates :condition,               presence: true
-  validates :sending_method,         presence: true
+  validates :sending_method,          presence: true
   validates :status,                  presence: true
   validates :area_id,                 presence: true
   validates :sending_status,          presence: true
