@@ -10,7 +10,6 @@ class ProductsController < ApplicationController
   end 
 
   def create
-    
     @product = Product.new(product_params)
     @product.save
     redirect_to "/"
@@ -19,6 +18,17 @@ class ProductsController < ApplicationController
   def show
     @product = Product.find_by(id: params[:id])
     @seller = User.find_by(id: @product.seller_id)
+  end
+
+  def destroy
+    if @product.seller_id == current_user.id
+      @product.destroy
+      redirect_to "/"
+      flash[:alert] = '商品を削除しました'
+    else
+      redirect_to show_products_path(product)
+      flash[:alert] = '商品削除に失敗しました'
+    end
   end
     private
   def set_product
