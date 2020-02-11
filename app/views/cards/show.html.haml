@@ -1,0 +1,31 @@
+- image = @product.images.first
+.container1
+  .main
+    .inner
+      %h2 購入内容の確認
+      .inner-item
+        .inner-item__images
+          = image_tag image.image_url.url,class:"image"
+        .inner-item__content
+          .inner-item__content-description
+            = @product.description
+          .inner-item__content-price
+          = @product.price
+          %span (税込) 送料込み
+      .inner-buy
+        .inner-buy__content
+          .inner-buy__content-kingaku
+            支払い金額
+          .inner-buy__content-price
+            = @product.price
+        .inner-buy__card
+          %h4 支払い方法
+          = link_to "#", class: "regist" do
+            登録してください
+        .inner-buy__delivery
+          %h4 配送先
+          = link_to "#", class: "regist" do
+            登録してください
+        .inner-buy__btn
+          = link_to "#", class: "btn" do
+            購入する
