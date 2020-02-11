@@ -1,5 +1,6 @@
 class ProductsController < ApplicationController
-  # before_action :set_product, only: [:edit, :update, :show, :show_mine, :destroy]
+  before_action :set_product, only: [:edit, :update, :show, :destroy]
+  
   def index
     @products = Product.all
   end
@@ -16,10 +17,13 @@ class ProductsController < ApplicationController
   end
 
   def show
-    @product = Product.find_by(id: params[:id])
     @seller = User.find_by(id: @product.seller_id)
   end
 
+  def edit
+    redirect_to "/"
+  end
+  
   def destroy
     if @product.seller_id == current_user.id
       @product.destroy
@@ -32,7 +36,7 @@ class ProductsController < ApplicationController
   end
     private
   def set_product
-    @product = Product.find(params[:product_id])
+    @product = Product.find_by(id: params[:id])
   end
 
   def product_params
