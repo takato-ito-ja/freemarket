@@ -5,7 +5,7 @@
   .inner {
     width: 700px;
     margin: 0 auto;
-    background-color: white;
+    height: 100vh;
 
     h2 {
       font-size: 22px;
@@ -34,7 +34,6 @@
       }
       .inner-form__content {
         width: 343px;
-        background-color: red;
       }
     }
 
