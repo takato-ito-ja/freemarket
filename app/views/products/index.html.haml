@@ -86,7 +86,7 @@
       .product-lists
         .product-list
           - @products.each do |product|
-            = link_to "", class: "box" do
+            = link_to "/products/#{product.id}", class: "box" do
               %figure.product-list__img
                 = image_tag product.images[0].image_url,class:"img"
                 - unless product.status == 0
@@ -100,48 +100,5 @@
                     %li
                   %p (税込)
   %section.pickup-container
-    %h2.head ピックアップブランド
-    .product-box
-      .product-head
-        = link_to "アーカイバ","#", class: "title"
-      .product-lists
-        .product-list
-          = link_to "",class:"box" do
-            %figure.product-list__img
-              = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png",class:"img"
-            .product-list--body
-              %h3.name product3
-              .details
-                %ul
-                  %li 30000円
-                  %li
-                    %i.fa.fa-star.likeIcon
-                    0
-                %p (税込)
-        .product-list
-          = link_to "",class:"box" do
-            %figure.product-list__img
-              = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png",class:"img"
-            .product-list--body
-              %h3.name product3
-              .details
-                %ul
-                  %li 30000円
-                  %li
-                    %i.fa.fa-star.likeIcon
-                    0
-                %p (税込)
-        .product-list
-          = link_to "",class:"box" do
-            %figure.product-list__img
-              = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png",class:"img"
-            .product-list--body
-              %h3.name product3
-              .details
-                %ul
-                  %li 30000円
-                  %li
-                    %i.fa.fa-star.likeIcon
-                    0
-                %p (税込)
+    
 = render partial: 'footer' 
