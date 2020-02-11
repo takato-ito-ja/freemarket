@@ -2,9 +2,11 @@ Rails.application.routes.draw do
   devise_for :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root "products#index"
+
   resources :products, only: [:index, :new, :create,:show, :edit, :update, :destroy]
+
   resources :signups, only: [:new, :show]
-  resources :cards, only: [:show]
+
   namespace :api do
     resources  controller: :products, only: :child, defaults: { format: 'json' } do
       collection do
@@ -22,4 +24,14 @@ Rails.application.routes.draw do
       end
     end
   end
+
+  resources :cards, only: [:new, :show] do
+    collection do
+      post 'pay', to: 'cards#pay'
+      post 'delete', to: 'cards#delete'
+    end
+  end
+
+  resources :buy, only: :show
+
 end

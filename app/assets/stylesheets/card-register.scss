@@ -1,0 +1,19 @@
+.card-register {
+  text-align: center;
+  &__list {
+    margin-top: 20px;
+    line-height: 40px;
+    font-size: 26px;
+  }
+  #card_token {
+    margin-top: 20px;
+    .card-register-btn {
+      font-size: 26px;
+      background-color:#3ccace;
+      border-radius: 20px;
+      color: white;
+      width: 150px;
+    }
+
+  }
+}
