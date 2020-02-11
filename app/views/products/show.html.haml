@@ -6,7 +6,7 @@
       .main
         .item-box
           %h2.item-box__name
-            = @product.name
+            = @products = Product.all
           .item-box__body
             %ul
               %li
@@ -73,7 +73,7 @@
                   %i.fa.fa-flag
                   不適切な商品の通報
           .buy-btn
-            = link_to "購入画面に進む"
+            = link_to "購入画面に進む", card_path, class: 'cards'
         .comment-box
           %ul.comment-contents
           %textarea#comment_body{name: "comment[body]", required: "required"}
