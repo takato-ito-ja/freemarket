@@ -7,11 +7,12 @@
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body
-    %header.header
-      = link_to "/" do
-        = image_tag '/material/logo/logo.png'
-    %main= yield
-    %footer.footer
-      = link_to "/" do
-        = image_tag '/material/logo/logo-white.png'
-      %p © FURIMA
+    .top-wrapper
+      %header.header
+        = link_to "/" do
+          = image_tag '/material/logo/logo.png'
+      %main= yield
+      %footer.footer
+        = link_to "/" do
+          = image_tag '/material/logo/logo-white.png'
+        %p © FURIMA
