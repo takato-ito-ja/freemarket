@@ -40,8 +40,6 @@ ActiveRecord::Schema.define(version: 20200206035020) do
   end
 
   create_table "products", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer  "seller_id"
-    t.integer  "buyer_id"
     t.string   "name"
     t.integer  "price"
     t.text     "description",            limit: 65535
@@ -54,6 +52,8 @@ ActiveRecord::Schema.define(version: 20200206035020) do
     t.integer  "sending_status"
     t.integer  "recieving_status"
     t.integer  "sending_method"
+    t.integer  "seller_id"
+    t.integer  "buyer_id"
     t.datetime "created_at",                           null: false
     t.datetime "updated_at",                           null: false
     t.integer  "category_id"

@@ -4,4 +4,22 @@ Rails.application.routes.draw do
   root "products#index"
   resources :products, only: [:index, :new, :create,:show, :destroy]
   resources :signups, only: [:new, :show]
+  resources :cards, only: [:show]
+  namespace :api do
+    resources  controller: :products, only: :child, defaults: { format: 'json' } do
+      collection do
+        get 'child'
+      end
+    end
+    resources  controller: :products, only: :grand_child, defaults: { format: 'json' } do
+      collection do
+        get 'grand_child'
+      end
+    end
+    resources  controller: :products, only: :image_destroy, defaults: { format: 'json' } do
+      collection do
+        delete "image_destroy"
+      end
+    end
+  end
 end

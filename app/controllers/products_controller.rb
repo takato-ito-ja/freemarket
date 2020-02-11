@@ -16,6 +16,7 @@ class ProductsController < ApplicationController
   end
 
   def show
+
     @product = Product.find_by(id: params[:id])
     @seller = User.find_by(id: @product.seller_id)
   end
@@ -42,3 +43,5 @@ class ProductsController < ApplicationController
     
   end
 end
+
+
