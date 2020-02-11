@@ -93,13 +93,10 @@
                   .main-products__items-box__list--sold-out--box
                   .main-products__items-box__list--sold-out--text SOLD
               .product-list--body
-                %h3 #{product.name}
-                -# .product_item__link__information__num
-                  -# .product_item__link__information__num--price ¥#{converting_to_jpy(product.price)}
+                %h3 = product.name
                 .details  
                   %ul
                     %li #{product.price}円
-                    -# %li #{product.condition}
                     %li
                   %p (税込)
   %section.pickup-container
