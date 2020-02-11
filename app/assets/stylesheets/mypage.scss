@@ -1,273 +1,211 @@
-body {
-    position: relative;
-    min-height: 100%;
-    font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
-    font-size: 14px;
-    color: rgb(51, 51, 51);
-    line-height: 1;
-    margin:unset;
-    background:rgb(245, 245, 245);
+.wrapper{
+  display: flex;
+  background:rgb(245, 245, 245);
+}
+.side-nav-head{
+  text-align: center;
+  height: 50px;
+  font-size: 23px;
+  font-weight: bold;
+  line-height: 50px;
+}
+.l-side__bar {
+  width: 45%;
+  margin: 30px 0;
 }
 .wrapper3 {
-  width: 100%;
-  margin: auto;
-  .container__mypage {
-    width: 80%;
-    margin: auto;
-    &__content {
-      margin-top: 35px;
-      &__news {
+  width: 55%;
+}
+nav ul {
+  list-style: none;
+  text-decoration: none;
+}
 
-      }
-      // &-usericon {
-      //   height:200px;
-      //   position: relative;
-      //   background-image: image-url("kirakira.jpg");
-      //   padding-top: 70px;
-      //   background-repeat: no-repeat;
-      //   img {
-      //     border-radius: 50%; 
-      //     margin-left: 320px;
-      //     height: 60px;
-      //   }
-      //   .user {
-      //     font-weight: bold;
-      //     height: 30px;
-      //     text-align: center;
-      //     a{
-      //       color: black;
-      //     }
-      //   }
-      //     .user-number {
-      //     font-weight: 545;
-      //     padding-left: 290px;
-      //     .user-number-evaluation {
-      //       width:70px;
-      //       height: 16px;
-      //       float: left;
-      //     }
-      //     .user-number-exhibitin {
-      //       height: 16px;
-      //       display: inline-block
-      //     }
-      //   }
-      // }
-      .news{
-        margin: 0;
-        margin-inline-end: unset;
-        margin-inline-start: unset;
-        &-tab{
-          background-color:#eee;
-          display:flex;
-          list-style: none;
-          padding-inline-start: unset;
-          &__profile {
-            position:relative;
-            border-radius: 70px;
-            width: 130%;
-            &__icon {
-              position: absolute;
-                top: 10%;
-                left: 30%;
-              }
-              }
-          &__active{
-            font-size: 22px;
-            font-weight:600px;
-            width: 50%;
-            text-align:center;
-            background-color: white;
-            height: 74px;
-            line-height: 330%;
-            border: none;
-            cursor: pointer;
-            &__notice{
-              display: inline-block;
-              width: 100%;
-              border-top: 2px solid rgb(50, 212, 204);
-              font-size: 16px;
-              &:hover{
-                color:gray;
-              }
-            }
-          }
-          &__activelist{
-            background-color: #eee;
-            font-size: 22px;
-            font-weight:600px;
-            width: 50%;
-            text-align:center;
-            line-height: 330%;
-            border: none;
-            cursor: pointer;
-            &__notice{
-              font-size:16px;
-              &:hover{
-                color: gray;
-              }
-            }
-          }
-        }
-      }
-      .new{
-        background-repeat: no-repeat;
-        margin: 0;
-        padding: 0;
-        &__news{
-          display: none;
-          height: 236px;
-          background-image: image-url("mypage.yarukotolist.png");
-          &_contents-image{
-            height: 200px;
-            width:600px;
-            background-size: 80px;
-          }
-        }
-        &__content{
-          display: block;
-          &__message {
-            border: 1px solid #eee;
-            min-height: 70px;
-            padding: 10px;
-            color:#333;
-            background-color: white;
-            display: flex;
-            position: relative;
-            margin: auto;
-            &:hover{
-              background-color: #eee;
-            }
-            img{
-              width: 50px;
-              height: 50px;
-            }
-            .fa.fa-chevron-right{
-              float: right;
-              position: absolute;
-              top:50%;
-              right: 1%;
-            }
-            &.fa.fa-chevron-right{
-              content: url(./arrow.png);
-            }
-            &__text{
-              padding: 5%;
-              width: 60%;
-            }
-          &__deal{
-            display: block;
-            margin-top: 80px;
-            margin-top: 30px;
-            margin-bottom: 30px;
-            }
-            }
-            }
+.l-side-bar{
+  display: flex;
+  }
 
-          }
-          &__message__all{
-            border: 0;
-            &_buttom{
-              display:block;
-              height: 56px;
-              margin: 0 auto;
-              background-color: #eee;
-              color: black;
-              line-height: 56px;
-              text-align: center;
-              &:hover{
-                background-color:#fafafa;
-              } 
-            }  
-          }
-        }
-      }
-      .content-buy{
-        margin: 40px 0 0;
-        background:header-background;
-        border: 1px solid #eee;
-        &-head{
-          padding: 0 16px;
-          background-color: #fafafa;
-          font-size:16px;
-          line-height:72px;
-          font-weight: bold;
-        }
-        &-tab{
-          border:0px;
-          background: #eee;
-          height: 72px;
-          display: flex;
-          &-new{
-            font-size: 16px;
-            font-weight:600;
-            text-align: center;            
-            line-height: 5;
-            &__latest{
-              &:hover{
-                color:silver;
-              }
-            }
-          }
-          &-low{
-            border-top:2px solid red;
-            background-color:white;
-            width: 50%;
-            font-size: 16px;
-            font-weight: 600px;
-            line-height: 5;
-            text-align: center;
-            &__past{
-              font-weight: bold;
-              &:hover{
-                color: silver;
-              }
-            }
-          }
-        }
-        &-buttom{
-          width: 500px;;
-          background-repeat: no-repeat;
-          background-size: 70%;
-        }    
-      }
-  .new__content__go-list {
+.l-side-bar__list-item {
+  position: relative;
+  display: block;
+  justify-content: center;
+  height: 55px;
+  line-height: 55px;
+  background: #fff;
+  font-size: 17px;
+  color: #333;
+  padding-left: 20px;
+  width:80%;
+  margin: 5px 55px;
+  &.fa.fa-chevron-right{
     display: block;
-    height: 56px;
-    margin: 0 auto;
-    background: #eee;
-    color: #333;
-    line-height: 56px;
-    text-align: center;
-    margin-top: 30px;
-  }
-
-  figure {
-      display: block;
-      margin-inline-start: unset;
-      margin-inline-end: unset;
-      margin-bottom: unset;
-  }
-
-
-  .member_photo {
-    border-radius: 70px;
-    width: 60%;
-    margin: 30%;
-  }
-
-  .logo-white_160 {
-    width:30%;
-    margin: 10% 40%;
-  }
-
-  .profile-image {
-    width:77%;
-  }
-  .new__content__message__deal {
-    display: block;
-    margin-top: 80px;
-    margin-top: 30px;
-    margin-bottom: 30px;
-    text-align: center;
+    content: url(./arrow.png);
   }
 }
+
+a:-webkit-any-link {
+text-decoration: none;
+color:#333;
+}
+
+
+.fa-chevron-right:before {
+content: "";
+position: absolute;
+right: 30px;
+top: 20px;
+}
+
+
+
+.wrapper3{
+  margin: 0 50px;
+}
+.member_photo{
+  border-radius: 50%;
+}
+.news{
+  margin: 0;
+  margin-inline-end: unset;
+  margin-inline-start: unset;
+  width: 80%;
+  &-tab{
+    background-color:#eee;
+    display:flex;
+    padding-inline-start: unset;
+    &__profile {
+      position:relative;
+      margin: 32px 0 5px 0;
+      &__icon {
+        position: absolute;
+        top: 18%;
+        left: 43%;
+
+      }
+    }
+    &__active{
+      font-size: 22px;
+      font-weight:600px;
+      width: 50%;
+      text-align:center;
+      background-color: white;
+      height: 74px;
+      line-height: 330%;
+      border: none;
+      cursor: pointer;
+      &__notice{
+        display: inline-block;
+        width: 100%;
+        border-top: 2px solid rgb(50, 212, 204);
+        font-size: 16px;
+        &:hover{
+          color:gray;
+        }
+      }
+    }
+    &__activelist{
+      background-color: #eee;
+      font-size: 22px;
+      font-weight:600px;
+      width: 50%;
+      border: none;
+      cursor: pointer;
+      &__notice{
+        font-size:16px;
+        &:hover{
+          color: gray;
+        }
+      }
+    }
+  }
+}
+
+.logo-image{
+  width: 50px;
+  height: 50px;
+}
+
+.new__content{
+  display: block;
+  &__message {
+    border: 1px solid #eee;
+    color:#333;
+    background-color: white;
+    display: flex;
+    position: relative;
+    &:hover{
+      background-color: #eee;
+    }
+    .fa.fa-chevron-right{
+      float: right;
+      position: absolute;
+      top:35px;
+      right: 10px;
+    }
+    .fa.fa-chevron-right{
+      content: url(./arrow.png);
+    }
+    &__text{
+      padding: 0 20px;
+      line-height: 85px;
+      word-wrap: break-word;
+    }
+    &__deal{
+      display: block;
+      margin-top: 80px;
+      margin-top: 30px;
+      margin-bottom: 30px;
+    }
+  }
+}
+.content-buy{
+  margin: 40px 0 0;
+  background:header-background;
+  border: 1px solid #eee;
+  &-head{
+    padding: 0 16px;
+    background-color: #fafafa;
+    font-size:16px;
+    line-height:72px;
+    font-weight: bold;
+  }
+  &-tab{
+    border:0px;
+    background: #eee;
+    height: 72px;
+    display: flex;
+    &-new{
+      font-size: 16px;
+      font-weight:600;
+      text-align: center;            
+      line-height: 5;
+      &__latest{
+        &:hover{
+          color:silver;
+        }
+      }
+    }
+    &-low{
+      border-top:2px solid red;
+      background-color:white;
+      width: 50%;
+      font-size: 16px;
+      font-weight: 600px;
+      line-height: 5;
+      text-align: center;
+      &__past{
+        font-weight: bold;
+        &:hover{
+          color: silver;
+        }
+      }
+    }
+  }
+}
+
+
+.profile-image {
+  width:100%;
+  height: 15%;
+}
+
