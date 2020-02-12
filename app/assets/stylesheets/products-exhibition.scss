@@ -58,6 +58,9 @@
         margin-top: 8px;
         line-height: 1.5;
       }
+      & input {
+        display: none;
+      }
       &-select {
         position: relative;
         width: 622px;

@@ -3,10 +3,10 @@
 .show-backbround-color
   .show-main
     .content
-      .main
+      .product
         .item-box
           %h2.item-box__name
-            = @product.name
+            = @products = Product.all
           .item-box__body
             %ul
               %li
@@ -36,16 +36,16 @@
                   %th カテゴリー
                   %td
                     = @product.category.name
-                - if @product.brand.present?
-                  %tr
-                    %th ブランド
-                    %td
-                      = @product.brand.name
-                - if @product.size.present?
-                  %tr
-                    %th 商品のサイズ
-                    %td
-                      = @product.size
+              - if @product.brand.present?
+                %tr
+                  %th ブランド
+                  %td
+                    = @product.brand.name
+              - if @product.size.present?
+                %tr
+                  %th 商品のサイズ
+                  %td
+                    = @product.size
                 %tr
                   %th 商品の状態
                   %td 
@@ -73,11 +73,11 @@
                   %i.fa.fa-flag
                   不適切な商品の通報
           .buy-btn
-            -if user_signed_in? && @seller.id == current_user.id
+            -if user_signed_in?
               = link_to "削除", product_path(@product.id), method: :delete, class: "destroy-btn"
               = link_to '編集', edit_product_path(@product.id), class: "edit-btn"
             -else
-              = link_to "購入画面に進む","/buy/#{@product.id}" 
+              = link_to "購入画面に進む","/" 
         .comment-box
           %ul.comment-contents
           %textarea#comment_body{name: "comment[body]", required: "required"}
@@ -102,4 +102,4 @@
         = link_to ""  do
           ベビー・キッズをもっと見る
         .product-lists
--# = render partial: 'footer' 
+= render partial: 'footer' 
