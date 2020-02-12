@@ -10,7 +10,8 @@
     %header.header
       = link_to "/" do
         = image_tag '/material/logo/logo.png'
-    %main= yield
+    %main.main
+      = yield
     %footer.footer
       = link_to "/" do
         = image_tag '/material/logo/logo-white.png'
