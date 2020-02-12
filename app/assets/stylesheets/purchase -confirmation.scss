@@ -1,0 +1,115 @@
+.purchase-confirmation {
+  height: 100vh;
+  width: 100%;
+  background-color: whitesmoke;
+  position: relative;
+    .conteiner {
+      height: 600px;
+      width: 70%;
+      margin: 0 auto;
+      background-color: white;
+      position: absolute;
+      top: 30px;
+      left: 15%;
+      .header {
+        text-align: center;
+        font-size: 26px;
+        font-weight: bold;
+        padding: 10px;
+      }
+      .item-information {
+        padding: 24px 0px;
+        border-top: 1px solid #f5f5f5;
+        height: 120px;
+        background-color: white;
+        display: flex;
+        &__image {
+          height: 80px;
+          width: 80px;
+          .image {
+            height: 80px;
+            width: 80px;
+            margin-left: 10px;
+          }
+        }
+        &__content {
+          margin-left: 30px;
+          height: 100%;
+          width: 100%;
+          &--description {
+            height: 65px;
+          }
+          &--price {
+            font-weight: bold;
+            font-size: 13.5px;
+          }
+        }
+      }
+      .item-price {
+        border-top: 1px solid #f5f5f5;
+        &__content {
+          margin-top: 30px;
+          margin-bottom: 20px;
+          display: flex;
+          justify-content: space-between;
+          font-weight: bold;
+          font-size: 18px;
+          &--text {
+            margin-left: 10px;
+          }
+          &--price {
+            margin-right: 40px;
+            font-size: 30px;
+          }
+        }
+      }
+      .pay-method {
+        border-top: 1px solid #f5f5f5;
+        border-bottom: 1px solid #f5f5f5;
+        width: 100%;
+        padding-top: 30px;
+        padding-bottom: 10px;
+        margin-left: 10px;
+        &__text {
+          font-size: 16px;
+          font-weight: bold;
+          margin-bottom: 8px;
+        }
+        &__method {
+          font-size: 14px;
+        }
+      }
+
+      .address {
+        border-bottom: 1px solid #f5f5f5;
+        width: 100%;
+        padding-top: 30px;
+        padding-bottom: 10px;
+        margin-left: 10px;
+        &__text {
+          font-size: 16px;
+          font-weight: bold;
+          margin-bottom: 8px;
+        }
+        &__address {
+          font-size: 14px;
+        }
+      }
+      .buy-btn {
+        text-align: center;
+        margin-top: 40px;
+        &__link {
+          text-decoration: none;
+          color: white;
+          background-color: #3ccace;
+          display: inline-block;
+          line-height: 40px;
+          font-size: 18px;
+          width: 100px;
+          border-radius: 30px;
+
+        }
+      }
+      
+    }
+  }
