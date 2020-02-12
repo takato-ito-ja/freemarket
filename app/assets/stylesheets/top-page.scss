@@ -454,7 +454,7 @@
   position: relative;
   background-size: cover;
   background-position: center;
-  .inner {
+  .inner-toppage {
     color: #fff;
     text-align: center;
     &__title {
@@ -517,6 +517,7 @@
   }
 }
 .purchase-btn {
+  z-index: 10;
   width: 120px;
   background-color: #3ccace;
   text-align: center;
