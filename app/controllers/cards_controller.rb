@@ -26,10 +26,7 @@ class CardsController < ApplicationController
   end
 
   def show #クレジット購入
-    unless user_signed_in?
-      redirect_to registration_users_path
-      flash[:alert] = '購入には新規登録が必要です'
-    else
+    if user_signed_in?
       card = current_user.card
       if card.blank?
         redirect_to action: "new"
@@ -52,6 +49,9 @@ class CardsController < ApplicationController
           redirect_to "/"
         end
       end
+    else
+      redirect_to registration_users_path
+      flash[:alert] = '購入には新規登録が必要です'
     end
   end
 end
