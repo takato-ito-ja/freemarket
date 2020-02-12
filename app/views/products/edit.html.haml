@@ -1,7 +1,7 @@
 .container2
   .sell
     = form_for(@product) do |f|
-      .sell__title 商品の情報を入力
+      .sell__title 商品の情報を編集
       .sell__image
         =f.label :image, "出品機能"
         %span.required
@@ -12,11 +12,13 @@
             - @product.images.each_with_index do |image, i|
               %label{class: "sell__image-select__ul-text ul-id-#{i}"}
                 = f.fields_for :images, image do |img|
-                  = img.file_field :image_url,  "data-id": "#{i}"
+                  = img.file_field :image_url,  "data-id": "#{i}", class: "file_field"
                   %li
+                  -if image.id.present?
+                    = image_tag "#{img.object.image_url}",size: "114x116",class:"product_image"
                   .btn-box
                     %a 編集
-                    %a.delete-btn 削除
+                    %a{ class: "delete-btn", "data-imgid": "#{image.id}" }削除
       .sell__about
         .sell__about__name
           = f.label :name, "商品名"
@@ -34,16 +36,18 @@
           = f.label :category_id, "カテゴリー"
           %span.required
           .sell__about__right__wrap-box.parent
-            %select#parent
+            %select{id: "parent", name: @category}
               %option{value: 0} ---
               - Category.where('ancestry IS NULL').each do |cat|
-                %option{value: "#{cat.id}"} #{cat.name}
+                %option{value: "#{cat.id}",class: "root"} #{cat.name}
             %i.fas.fa-chevron-down
           .sell__about__right__wrap-box.child
-            %select#child
+            %select{id: "child", name: @category.parent.id}
+            - @child_categories.each do |cat|
+              %option{value: "#{cat.id}"} #{cat.name}
             %i.fas.fa-chevron-down
           .sell__about__right__wrap-box.grand_child
-            = f.collection_select(:category_id, [], :id, :name, {prompt: "---"}, {id: "grand_child"})
+            = f.collection_select(:category_id, @grand_child, :id, :name, {prompt: "---"}, {id: "grand_child"})
             %i.fas.fa-chevron-down
 
           .sell__about__right__wrap
