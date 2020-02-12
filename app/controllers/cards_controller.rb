@@ -50,7 +50,7 @@ class CardsController < ApplicationController
         end
       end
     else
-      redirect_to registration_users_path
+      redirect_to "/users/sign_up"
       flash[:alert] = '購入には新規登録が必要です'
     end
   end
