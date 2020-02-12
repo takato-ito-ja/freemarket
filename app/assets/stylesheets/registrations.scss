@@ -1,32 +1,30 @@
+h1 {
+  text-align: center;
+  font-weight: bold;
+  font-size: 22px;
+  padding: 32px 0;
+}
+#error_explanation{
+  color: red;
+  margin: 20px 0;
+  &__info{
+    border: solid 1px;
+    &__string{
+      margin: 10px;
+    }
+  }
+  
+}
 
+#error_explanation li{
+  margin: 10px;
+}
 
-      h1 {
-        text-align: center;
-        font-weight: bold;
-        font-size: 22px;
-        padding: 32px 0;
-      }
-      #error_explanation{
-        color: red;
-        margin: 20px 0;
-        &__info{
-          border: solid 1px;
-          &__string{
-            margin: 10px;
-          }
-        }
-        
-      }
+.new_user {
+  padding: 33px;
+  background-color: white;
+}
 
-      #error_explanation li{
-        margin: 10px;
-      }
-
-      .new_user {
-        padding: 33px;
-        background-color: white;
-      }
-        
 .field__input {
   height: 48px;
   padding: 10px 10px;
@@ -82,24 +80,13 @@ p.form-info {
   margin-bottom: 30px;
   text-align: center;
   }
-.mail-btn {
-  font-size: 14px;
-  color: white;
-  text-decoration: none;
-  background-color: #ea352d;
-  display: block;
-  width: 100%;
-  line-height: 48px;
-  border: 1px solid transparent;
-  transition: all ease-out 3s;
-  cursor: pointer;
-  text-align: center;
-}
+
 .inner-form__content {
-  width: 343px;
+  width: 350px;
   color: red;
-  margin-bottom: 25px;
-  height: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  
 }
 .inner-form__content input {
   color: white;
@@ -113,6 +100,7 @@ p.form-info {
   height: 50px;
   width: 100%;
   padding-top: 15px;
+  text-align: center;
 }
 .register {
   text-decoration: none;
@@ -131,4 +119,5 @@ p {
 .text3 {
   height: 48px;
   width: 100%;
+  text-align: center;
 }
