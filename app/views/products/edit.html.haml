@@ -1,0 +1,141 @@
+.container2
+  .sell
+    = form_for(@product) do |f|
+      .sell__title 商品の情報を入力
+      .sell__image
+        =f.label :image, "出品機能"
+        %span.required
+        %p.max 最大5枚までアップロードできます
+        .sell__image-select
+          ここをクリックしてファイルをアップロード
+          %ul.sell__image-select__ul
+            - @product.images.each_with_index do |image, i|
+              %label{class: "sell__image-select__ul-text ul-id-#{i}"}
+                = f.fields_for :images, image do |img|
+                  = img.file_field :image_url,  "data-id": "#{i}"
+                  %li
+                  .btn-box
+                    %a 編集
+                    %a.delete-btn 削除
+      .sell__about
+        .sell__about__name
+          = f.label :name, "商品名"
+          %span.required
+          = f.text_field :name, class: "form", placeholder: "商品名（必須40文字まで）"
+        .sell__about__description
+          = f.label :description, "商品の説明"
+          %span.required
+          = f.text_area :description, class: "sell__about-description__form", placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"
+      .sell__about.clearfix
+        .sell__about__left 
+          商品の詳細
+
+        .sell__about__right__wrap
+          = f.label :category_id, "カテゴリー"
+          %span.required
+          .sell__about__right__wrap-box.parent
+            %select#parent
+              %option{value: 0} ---
+              - Category.where('ancestry IS NULL').each do |cat|
+                %option{value: "#{cat.id}"} #{cat.name}
+            %i.fas.fa-chevron-down
+          .sell__about__right__wrap-box.child
+            %select#child
+            %i.fas.fa-chevron-down
+          .sell__about__right__wrap-box.grand_child
+            = f.collection_select(:category_id, [], :id, :name, {prompt: "---"}, {id: "grand_child"})
+            %i.fas.fa-chevron-down
+
+          .sell__about__right__wrap
+            = f.label :size, "サイズ"
+            %span.required-gray
+            .sell__about__right__wrap-box
+              = f.select :size, Product.sizes.keys, prompt: "---", class: "select"
+              %i.fas.fa-chevron-down
+          .sell__about__right__wrap
+            = f.label :brand_id, "ブランド"
+            %span.required-gray
+            .sell__about__right__wrap-box
+              = f.collection_select(:brand_id, Brand.all, :id, :name, prompt: "---")
+              %i.fas.fa-chevron-down
+          .sell__about__right__wrap
+            = f.label :condition, "商品の状態"
+            %span.required
+            .sell__about__right__wrap-box
+              = f.select :condition, Product.conditions.keys, prompt: "---", class: "select"
+              %i.fas.fa-chevron-down
+
+      .sell__about.clearfix
+        .sell__about__left 配送について
+        .sell__about__right
+          .sell__about__right__wrap
+            = f.label :postage_burden, "配送料の負担"
+            %span.required
+            .sell__about__right__wrap-box
+              = f.select :postage_burden, Product.postage_burdens.keys, prompt: "---", class: "select"
+              %i.fas.fa-chevron-down
+          .sell__about__right__wrap
+            = f.label :sending_method, "配送の方法"
+            %span.required
+            .sell__about__right__wrap-box
+              = f.select :sending_method, Product.sending_methods.keys, prompt: "---", class: "select"
+              %i.fas.fa-chevron-down
+          .sell__about__right__wrap
+            = f.label :area_id, "発送元の地域"
+            %span.required
+            .sell__about__right__wrap-box
+              = f.collection_select(:area_id, Area.all, :id, :name, prompt: "---")
+              %i.fas.fa-chevron-down
+          .sell__about__right__wrap
+            = f.label :scheduled_sending_date, "発送までの日数"
+            %span.required
+            .sell__about__right__wrap-box
+              = f.select :scheduled_sending_date, Product.scheduled_sending_dates.keys, prompt: "---", class: "select"
+              %i.fas.fa-chevron-down
+
+      .sell__about.clearfix
+        .sell__about__left 販売価格(300〜9,999,999)
+        .sell__about__right
+          .sell__about__right__wrap
+            .sell__about__right__wrap__price
+              .sell__about__right__wrap__price-label
+                = f.label :price, "価格"
+                %span.required
+              .sell__about__right__wrap__price-input
+                .text1 ¥
+                .sell__about__right__wrap__price-input-form
+                  = f.number_field :price, placeholder: "例）300", class: "form1"
+
+          .sell__about__right__wrap__fee.clearfix
+            .sell__about__right__wrap__fee-left
+              販売手数料 (10%)
+            .sell__about__right__wrap__fee-right
+              ¥
+          .sell__about__right__wrap__profit
+            .sell__about__right__wrap__profit-left
+              販売利益
+            .sell__about__right__wrap__profit-right
+              ¥
+      .sell__about.clearfix
+        .sell__about__bottom
+          .sell__about__bottom-text
+            %p
+              = link_to '#' do
+                禁止されている出品
+              、
+              = link_to '#' do
+                行為
+              を必ずご確認ください。
+            %p
+              またブランド品でシリアルナンバー等がある場合はご記載ください。
+              = link_to '#' do
+                偽ブランド
+              の販売は犯罪であり処罰される可能性があります。
+            %p
+              また、出品をもちまして
+              = link_to '#' do
+                加盟店規約
+              に同意したことになります。
+        .sell__about__bottom-botan
+          = f.submit "出品する", class: 'botan-b'
+          %button{type: "button", onclick: "history.back()", class: 'botan-c'} もどる

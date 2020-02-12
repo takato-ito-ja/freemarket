@@ -88,4 +88,18 @@
           %button.comment-btn{name:  "button", type: "submit"}
             %i.fa.fa-comment
             コメントする
+      %ul.links
+        %li.left
+          = link_to ""  do
+            %i.fa.fa-angle-left
+            %span
+            前の商品
+        %li.right
+          = link_to ""  do
+            %span 後ろの商品
+            %i.fa.fa-angle-right
+      .related-items
+        = link_to ""  do
+          ベビー・キッズをもっと見る
+        .product-lists
 = render partial: 'footer' 
