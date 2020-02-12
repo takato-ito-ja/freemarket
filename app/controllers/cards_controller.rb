@@ -25,9 +25,33 @@ class CardsController < ApplicationController
     end
   end
 
-  def show
-    @product = Product.find(params[:id])
-    @seller = User.find_by(id: @product.seller_id)
-  end
+  def show #クレジット購入
+    unless user_signed_in?
+      redirect_to registration_users_path
+      flash[:alert] = '購入には新規登録が必要です'
+    else
+      card = current_user.card
+      if card.blank?
+        redirect_to action: "new"
+        flash[:alert] = '購入にはクレジットカード登録が必要です'
+      else
 
+        @product = Product.find(params[:id])
+        card = current_user.card
+        Payjp.api_key = ENV["PAYJP_ACCESS_KEY"]
+        Payjp::Charge.create(
+        amount: @product.price, #支払金額
+        customer: card.customer_id, #顧客ID
+        currency: 'jpy', #日本円
+        )
+        if @product.update(status: 1, buyer_id: current_user.id)
+          flash[:notice] = '購入しました。'
+          redirect_to "/"
+        else
+          flash[:alert] = '購入に失敗しました。'
+          redirect_to "/"
+        end
+      end
+    end
+  end
 end

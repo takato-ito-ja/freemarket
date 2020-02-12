@@ -31,7 +31,13 @@ Rails.application.routes.draw do
       post 'delete', to: 'cards#delete'
     end
   end
-
+  resource "products", only: :show do
+    resources :cards, only: :buy do
+      collection do
+        post "buy", to: "cards#buy"
+      end
+    end
+  end
   resources :buy, only: :show
 
 end
