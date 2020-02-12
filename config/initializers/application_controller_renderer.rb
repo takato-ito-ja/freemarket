@@ -1,3 +1,4 @@
+# Be sure to restart your server when you modify this file.
 
 # require_relative 'boot'
 
@@ -17,3 +18,10 @@
 #       config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}').to_s]
 #     end
 #   end
+# ActiveSupport::Reloader.to_prepare do
+#   ApplicationController.renderer.defaults.merge!(
+#     http_host: 'example.org',
+#     https: false
+#   )
+
+# end

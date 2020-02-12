@@ -1,0 +1,33 @@
+- image = @product.images.first
+.purchase-confirmation
+  .conteiner
+    .header
+      購入内容の確認
+    .item-information
+      .item-information__image
+        = image_tag image.image_url.url,class:"image"
+      .item-information__content
+        .inner-item__content--description
+          = @product.description
+        .item-information__content--price
+        = @product.price
+        %span (税込) 送料込み
+    .item-price
+      .item-price__content
+        .item-price__content--text
+          支払い金額
+        .item-price__content--price
+          ¥ #{@product.price}
+    .pay-method
+      %P.pay-method__text
+        支払い方法
+      %p.pay-method__method
+        クレジットカード
+    .address
+      %p.address__text
+        配送先
+      %p.address__address 
+        登録してください
+    .buy-btn
+      = link_to  "/cards/#{@product.id}",class:"buy-btn__link" do
+        購入する

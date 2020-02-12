@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200206035020) do
+ActiveRecord::Schema.define(version: 20200211105543) do
 
   create_table "areas", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name",       null: false
@@ -24,6 +24,15 @@ ActiveRecord::Schema.define(version: 20200206035020) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "cards", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "user_id"
+    t.string   "customer_id", null: false
+    t.string   "card_id",     null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["user_id"], name: "index_cards_on_user_id", using: :btree
+  end
+
   create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name",       null: false
     t.string   "ancestry"
@@ -32,14 +41,16 @@ ActiveRecord::Schema.define(version: 20200206035020) do
   end
 
   create_table "images", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.text     "image_url",  limit: 65535
     t.integer  "product_id"
+    t.text     "image_url",  limit: 65535
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
     t.index ["product_id"], name: "index_images_on_product_id", using: :btree
   end
 
   create_table "products", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "seller_id"
+    t.integer  "buyer_id"
     t.string   "name"
     t.integer  "price"
     t.text     "description",            limit: 65535
@@ -52,8 +63,6 @@ ActiveRecord::Schema.define(version: 20200206035020) do
     t.integer  "sending_status"
     t.integer  "recieving_status"
     t.integer  "sending_method"
-    t.integer  "seller_id"
-    t.integer  "buyer_id"
     t.datetime "created_at",                           null: false
     t.datetime "updated_at",                           null: false
     t.integer  "category_id"
@@ -87,6 +96,7 @@ ActiveRecord::Schema.define(version: 20200206035020) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "cards", "users"
   add_foreign_key "images", "products"
   add_foreign_key "products", "areas"
   add_foreign_key "products", "brands"

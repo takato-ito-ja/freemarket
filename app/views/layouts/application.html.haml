@@ -3,6 +3,7 @@
   %head
     %meta{content:"text/html; charset=UTF-8", "http-equiv": "Content-Type"}/
     %title FreemarketSample67e
+    %script{src: "https://js.pay.jp/", type: "text/javascript"}
     = csrf_meta_tags
     = stylesheet_link_tag    'application', media: 'all'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
@@ -10,8 +11,8 @@
     %header.header
       = link_to "/" do
         = image_tag '/material/logo/logo.png'
-    %main
-    = yield
+    %main.main
+      = yield
     %footer.footer
       = link_to "/" do
         = image_tag '/material/logo/logo-white.png'
