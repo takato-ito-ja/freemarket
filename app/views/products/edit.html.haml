@@ -5,11 +5,9 @@
       .sell__image
         = f.label :image, "出品画像"
         %span.required
-        %p.max 最大10枚までアップロードできます
+        %p.max 最大5枚までアップロードできます
         .sell__image-select
-          ドラッグアンドドロップ
-          %br
-          またはクリックしてファイルをアップロード
+          クリックしてファイルをアップロード
           %ul.sell__image-select__ul
             - @product.images.each_with_index do |image, i|
               %label{class: "sell__image-select__ul-text ul-id-#{i}"}
@@ -21,6 +19,10 @@
                       .btn-box
                         %a 編集
                         = link_to "削除", image_path(image.id), method: :delete, class: "destroy-btn"
+                  -unless image.id.present?
+                    .btn-box
+                      %a 編集
+                      %a.delete-btn 削除
       .sell__about
         .sell__about__name
           = f.label :name, "商品名"
