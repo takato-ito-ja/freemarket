@@ -22,6 +22,7 @@ class ProductsController < ApplicationController
   end
 
   def edit
+
     @category = @product.category
     @child_categories = Category.where('ancestry = ?', "#{@category.parent.ancestry}")
     @grand_child = Category.where('ancestry = ?', "#{@category.ancestry}")
@@ -35,11 +36,11 @@ class ProductsController < ApplicationController
   end
 
   def update
-    if @product.update(product_params) && params.require(:product).keys[0] == "images_attributes"
+    if @product.update_attributes(update_params) && params.require(:product).keys[0] == "images_attributes"
       redirect_to root_path ,notice: '商品を編集しました'
     else
       # flash[:alert] = '編集に失敗しました。必須項目を確認してください。'
-      redirect_to edit_products_path
+      redirect_to edit_product_path
     end
   end
   
@@ -65,9 +66,7 @@ class ProductsController < ApplicationController
   end
 
 
-  # def update_params
-  #   params.require(:product).permit(:name, :description, :category_id, :brand_id, :price, :description, :condition, :sending_method, :postage_burden, :sending_method_id, :area_id, :scheduled_sending_date, :size_id, images_attributes: [:image_url,:id]).merge(seller_id: current_user.id, status: 0, payment_method: 0, payment_status: 0, sending_status: 0, recieving_status: 0)
-  # end
+  def update_params
+    params.require(:product).permit(:name,:description,:category_id, :brand_id, :price, :description, :condition,:sending_method, :postage_burden,:area_id, :scheduled_sending_date, :size, images_attributes: [:image_url,:id]).merge(seller_id: current_user.id, status: 0, payment_status: 0, sending_status: 0, recieving_status: 0)
+  end
 end
-
-

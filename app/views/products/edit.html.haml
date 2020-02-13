@@ -1,22 +1,26 @@
-.container2
+.edit
   .sell
     = form_for(@product) do |f|
       .sell__title 商品の情報を入力
       .sell__image
-        =f.label :image, "出品機能"
+        = f.label :image, "出品画像"
         %span.required
-        %p.max 最大5枚までアップロードできます
+        %p.max 最大10枚までアップロードできます
         .sell__image-select
-          ここをクリックしてファイルをアップロード
+          ドラッグアンドドロップ
+          %br
+          またはクリックしてファイルをアップロード
           %ul.sell__image-select__ul
             - @product.images.each_with_index do |image, i|
               %label{class: "sell__image-select__ul-text ul-id-#{i}"}
                 = f.fields_for :images, image do |img|
-                  = img.file_field :image_url,  "data-id": "#{i}"
+                  = img.file_field :image_url,"data-id": "#{i}",class: "file_field"
                   %li
-                  .btn-box
-                    %a 編集
-                    %a.delete-btn 削除
+                    -if image.id.present?
+                      = image_tag "#{img.object.image_url}",size: "114x116",class:"product_image"
+                      .btn-box
+                        %a 編集
+                        = link_to "削除", image_path(image.id), method: :delete, class: "destroy-btn"
       .sell__about
         .sell__about__name
           = f.label :name, "商品名"
@@ -29,22 +33,25 @@
       .sell__about.clearfix
         .sell__about__left 
           商品の詳細
-
-        .sell__about__right__wrap
-          = f.label :category_id, "カテゴリー"
-          %span.required
-          .sell__about__right__wrap-box.parent
-            %select#parent
-              %option{value: 0} ---
-              - Category.where('ancestry IS NULL').each do |cat|
-                %option{value: "#{cat.id}"} #{cat.name}
-            %i.fas.fa-chevron-down
-          .sell__about__right__wrap-box.child
-            %select#child
-            %i.fas.fa-chevron-down
-          .sell__about__right__wrap-box.grand_child
-            = f.collection_select(:category_id, [], :id, :name, {prompt: "---"}, {id: "grand_child"})
-            %i.fas.fa-chevron-down
+        .sell__about__right
+          .sell__about__right__wrap
+            = f.label :category_id, "カテゴリー"
+            %span.required
+            .sell__about__right__wrap-box.parent
+              %select{id: "parent",data: {root: @category.root.id}}
+                %option{value: 0} ---
+                - Category.where('ancestry IS NULL').each do |cat|
+                  %option{value: "#{cat.id}",class: "root"} #{cat.name}
+              %i.fas.fa-chevron-down
+            .sell__about__right__wrap-box.child
+              %select{id: "child",data: {child: @category.parent.id}}
+                %option{value: ""} ---
+                - @child_categories.each do |cat|
+                  %option{value: "#{cat.id}"} #{cat.name}
+              %i.fas.fa-chevron-down
+            .sell__about__right__wrap-box.grand_child
+              = f.collection_select(:category_id, @grand_child, :id, :name, {prompt: "---"}, {id: "grand_child"})
+              %i.fas.fa-chevron-down
 
           .sell__about__right__wrap
             = f.label :size, "サイズ"
@@ -137,5 +144,5 @@
                 加盟店規約
               に同意したことになります。
         .sell__about__bottom-botan
-          = f.submit "出品する", class: 'botan-b'
+          = f.submit "編集する", class: 'botan-b'
           %button{type: "button", onclick: "history.back()", class: 'botan-c'} もどる

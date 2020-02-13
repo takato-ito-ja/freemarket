@@ -1,4 +1,4 @@
-.container2 {
+.edit {
   padding: 0 0 220px;
   display: block;
   background-color: #EEEEEE	;
@@ -103,7 +103,7 @@
               }
             }
             & .btn-box {
-              display: none;
+              display: block;
               & a {
                 display: inline-block;
                 float: left;
@@ -168,10 +168,10 @@
             }
           }
           .child {
-            display: none;
+            display: block;
           }
           .grand_child {
-            display: none;
+            display: block;
           }
           &__price {
             width: 100%;
@@ -279,4 +279,3 @@
     }
   }
 }
-  

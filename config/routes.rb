@@ -39,5 +39,5 @@ Rails.application.routes.draw do
     end
   end
   resources :buy, only: :show
-
+  resources :image, only: :destroy
 end
