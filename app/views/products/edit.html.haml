@@ -12,14 +12,14 @@
             - @product.images.each_with_index do |image, i|
               %label{class: "sell__image-select__ul-text ul-id-#{i}"}
                 = f.fields_for :images, image do |img|
-
                   = img.file_field :image_url,"data-id": "#{i}",class: "file_field"
                   %li
                     -if image.id.present?
                       = image_tag "#{img.object.image_url}",size: "114x116",class:"product_image"
-                      .btn-box
-                        %a 編集
-                        = link_to "削除", image_path(image.id), method: :delete, class: "destroy-btn"
+                  -if image.id.present?
+                    .btn-box
+                      %a 編集
+                      = link_to "削除", image_path(image.id), method: :delete, class: "destroy-btn"
                   -unless image.id.present?
                     .btn-box
                       %a 編集
