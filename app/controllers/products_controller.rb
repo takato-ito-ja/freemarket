@@ -17,12 +17,11 @@ class ProductsController < ApplicationController
   end
 
   def show
-    @product = Product.find(params[:id])
-    @seller = User.find(@product.seller_id)
+    @seller = User.find_by(id: @product.seller_id)
   end
 
   def edit
-    @category = Category.find_by(id: @product.category_id)
+    @category = @product.category
     @child_categories = Category.where('ancestry = ?', "#{@category.parent.ancestry}")
     @grand_child = Category.where('ancestry = ?', "#{@category.ancestry}")
 
@@ -30,6 +29,7 @@ class ProductsController < ApplicationController
     image_amount.freeze
     num = image_amount - (@product.images.length)
     num.times { @product.images.build }
+
     # render layout: 'application'
   end
 

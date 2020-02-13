@@ -36,18 +36,20 @@
           = f.label :category_id, "カテゴリー"
           %span.required
           .sell__about__right__wrap-box.parent
-            %select{id: "parent", name: @category}
-              %option{value: 0} ---
+            %select{id: "parent",data: {root: @category.root.id}}
+              %option
               - Category.where('ancestry IS NULL').each do |cat|
                 %option{value: "#{cat.id}",class: "root"} #{cat.name}
             %i.fas.fa-chevron-down
           .sell__about__right__wrap-box.child
-            %select{id: "child", name: @category.parent.id}
-            - @child_categories.each do |cat|
-              %option{value: "#{cat.id}"} #{cat.name}
+            %select{id:"child",  data: {child: @category.parent.id}}
+              %option{value: 0}
+              - @child_categories.each do |cat|
+                %option{value: "#{cat.id}"} #{cat.name}
             %i.fas.fa-chevron-down
           .sell__about__right__wrap-box.grand_child
-            = f.collection_select(:category_id, @grand_child, :id, :name, {prompt: "---"}, {id: "grand_child"})
+            = f.collection_select(:category_id, @grand_child, :id, :name,  {id: "grand_child 0"})
+              - @child_categories.each do |cat|
             %i.fas.fa-chevron-down
 
           .sell__about__right__wrap
@@ -141,5 +143,5 @@
                 加盟店規約
               に同意したことになります。
         .sell__about__bottom-botan
-          = f.submit "出品する", class: 'botan-b'
+          = f.submit "編集する", class: 'botan-b'
           %button{type: "button", onclick: "history.back()", class: 'botan-c'} もどる
