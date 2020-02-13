@@ -1,7 +1,7 @@
 .edit
   .sell
     = form_for(@product) do |f|
-      .sell__title 商品の情報を入力
+      .sell__title 商品の情報を編集
       .sell__image
         = f.label :image, "出品画像"
         %span.required
@@ -14,6 +14,7 @@
             - @product.images.each_with_index do |image, i|
               %label{class: "sell__image-select__ul-text ul-id-#{i}"}
                 = f.fields_for :images, image do |img|
+
                   = img.file_field :image_url,"data-id": "#{i}",class: "file_field"
                   %li
                     -if image.id.present?
@@ -33,6 +34,7 @@
       .sell__about.clearfix
         .sell__about__left 
           商品の詳細
+
         .sell__about__right
           .sell__about__right__wrap
             = f.label :category_id, "カテゴリー"
@@ -52,6 +54,7 @@
             .sell__about__right__wrap-box.grand_child
               = f.collection_select(:category_id, @grand_child, :id, :name, {prompt: "---"}, {id: "grand_child"})
               %i.fas.fa-chevron-down
+
 
           .sell__about__right__wrap
             = f.label :size, "サイズ"

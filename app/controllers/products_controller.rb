@@ -23,7 +23,9 @@ class ProductsController < ApplicationController
 
   def edit
 
+
     @category = @product.category
+
     @child_categories = Category.where('ancestry = ?', "#{@category.parent.ancestry}")
     @grand_child = Category.where('ancestry = ?', "#{@category.ancestry}")
 
@@ -31,8 +33,7 @@ class ProductsController < ApplicationController
     image_amount.freeze
     num = image_amount - (@product.images.length)
     num.times { @product.images.build }
-
-    render layout: 'application'
+    # render layout: 'application'
   end
 
   def update
@@ -47,7 +48,7 @@ class ProductsController < ApplicationController
   def destroy
     if @product.seller_id == current_user.id
       @product.destroy
-      # redirect_to "/"
+      redirect_to "/"
       # flash[:alert] = '商品を削除しました'
     else
       redirect_to show_products_path(product)
