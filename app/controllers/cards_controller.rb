@@ -2,6 +2,7 @@ class CardsController < ApplicationController
   require "payjp"
 
   def new
+    gon.public_key = ENV['PAYJP_PUBLIC_KEY']
     card = Card.where(user_id: current_user.id)
   end
 
