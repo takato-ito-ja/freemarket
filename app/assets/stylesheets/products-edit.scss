@@ -1,4 +1,4 @@
-.container2 {
+.edit {
   padding: 0 0 220px;
   display: block;
   background-color: #EEEEEE	;
@@ -103,6 +103,7 @@
               }
             }
             & .btn-box {
+              display: block;
               & a {
                 display: inline-block;
                 float: left;
@@ -141,7 +142,6 @@
     }
     &__about.clearfix {
       padding: 40px;
-      // display: flex;
       .sell__about__left {
         width: 300px;
         color: #888;
@@ -167,10 +167,10 @@
             }
           }
           .child {
-            display: none;
+            display: block;
           }
           .grand_child {
-            display: none;
+            display: block;
           }
           &__price {
             width: 100%;
@@ -278,4 +278,3 @@
     }
   }
 }
-  
