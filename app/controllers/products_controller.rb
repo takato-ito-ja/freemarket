@@ -12,8 +12,13 @@ class ProductsController < ApplicationController
 
   def create
     @product = Product.new(product_params)
-    @product.save
-    redirect_to "/"
+    if @img_attr.present?
+      flash[:notice] = "出品が完了しました"
+      redirect_to "/"
+    else
+      flash[:alert] = '出品に失敗しました。必須項目を確認してください。'
+      redirect_to "/products/new"
+    end
   end
 
   def show
@@ -45,12 +50,13 @@ class ProductsController < ApplicationController
   
   def destroy
     if @product.seller_id == current_user.id
-      @product.destroy
+      product.destroy
       redirect_to "/"
     else
       redirect_to show_products_path(product)
     end
   end
+
     private
   def set_product
     @product = Product.find_by(id: params[:id])
