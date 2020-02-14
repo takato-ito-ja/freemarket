@@ -1,10 +1,16 @@
 ---
 ja:
-  users:
-    Nickname: "私用"
-    first_name: 仕事
-    others: "その他"
   activerecord:
+    models:
+      user: イベント
+    attributes:
+      user:
+        nickname: ニックネーム
+        last_name: 姓
+        first_name: 名
+        last_name_kana: 姓カナ
+        first_name_kana: 名カナ
+        phone_number: 電話番号
     エラー:
       メッセージ:
         record_invalid: 'バリデーションに失敗しました:％{errors}'
