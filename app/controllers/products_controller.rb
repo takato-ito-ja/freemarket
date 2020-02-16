@@ -12,7 +12,7 @@ class ProductsController < ApplicationController
 
   def create
     @product = Product.new(product_params)
-    if @img_attr.present?
+    if @img_attr.present? && @product.save 
       flash[:notice] = "出品が完了しました"
       redirect_to "/"
     else
@@ -63,6 +63,7 @@ class ProductsController < ApplicationController
   end
 
   def product_params
+    @img_attr = params[:product][:images_attributes]
     params.require(:product).permit(:name,:description,:category_id, :brand_id, :price, :description, :condition,:sending_method, :postage_burden,:area_id, :scheduled_sending_date, :size, images_attributes: [:image_url]).merge(seller_id: current_user.id, status: 0, payment_status: 0, sending_status: 0, recieving_status: 0)   
   end
 
