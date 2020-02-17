@@ -8,5 +8,5 @@
 require './db/seeds/area.rb'
 require './db/seeds/brand.rb'
 require './db/seeds/category.rb'
-require './db/seeds/product.rb'
-require './db/seeds/image.rb'
+# require './db/seeds/product.rb'
+# require './db/seeds/image.rb'
