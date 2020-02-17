@@ -36,16 +36,16 @@
                   %th カテゴリー
                   %td
                     = @product.category.name
-              - if @product.brand.present?
-                %tr
-                  %th ブランド
-                  %td
-                    = @product.brand.name
-              - if @product.size.present?
-                %tr
-                  %th 商品のサイズ
-                  %td
-                    = @product.size
+                - if @product.brand.present?
+                  %tr
+                    %th ブランド
+                    %td
+                      = @product.brand.name
+                - if @product.size.present?
+                  %tr
+                    %th 商品のサイズ
+                    %td
+                      = @product.size
                 %tr
                   %th 商品の状態
                   %td 
