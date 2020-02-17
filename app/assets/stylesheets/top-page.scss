@@ -415,6 +415,8 @@
               background-color: white;
               color: #333;
               padding: 16px;
+              white-space: nowrap;
+              text-overflow: ellipsis;
               overflow: hidden;
               width: 200px;
               .name {
