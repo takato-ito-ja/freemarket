@@ -50,7 +50,7 @@ class ProductsController < ApplicationController
   
   def destroy
     if @product.seller_id == current_user.id
-      product.destroy
+      @product.destroy
       redirect_to "/"
     else
       redirect_to show_products_path(product)
