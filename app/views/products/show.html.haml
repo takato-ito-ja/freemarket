@@ -71,8 +71,10 @@
             -if user_signed_in? && @product.seller_id == current_user.id
               = link_to "削除", product_path(@product.id), method: :delete, class: "destroy-btn"
               = link_to '編集', edit_product_path(@product.id), class: "edit-btn"
+            -elsif user_signed_in? && @product.buyer_id == nil
+              = link_to "購入画面に進む","/buy/#{@product.id}", class: "buying-btn"
             -else
-              = link_to "購入画面に進む","/buy/#{@product.id}", class: "buying-btn" 
+              = link_to "戻る","/", class: "buying-btn"
         .comment-box
           %ul.comment-contents
           %textarea#comment_body{name: "comment[body]", required: "required"}
