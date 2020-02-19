@@ -203,7 +203,7 @@
         &__pict {
           position: relative;
           margin-bottom: 20px;
-          .list-text span {
+          .number {
             display: inline-block;
             position: absolute;
             top: 0;
@@ -232,6 +232,7 @@
           }
         }
         &__description{
+          color: black;
           font-size: 18px;
           line-height: 1.5;
           margin: 16px 0 0;
@@ -277,11 +278,13 @@
       max-width: 1040px;
       margin: 0 auto;
       &__subtitle {
+        text-align: left;
         font-size: 27px;
         font-weight: bold;
         line-height: 1.4;
       }
       &__text {
+        color: #fff;
         font-size: 18px;
         margin: 20px 0 30px;
         line-height: 1.5;
@@ -461,18 +464,19 @@
   .inner-toppage {
     color: #fff;
     text-align: center;
-    &__title {
+    .inner__title {
       text-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
       font-size: 24px;
       font-weight: bold;
       line-height: 1.4;
 
     }
-    &__text {
+    .inner__text {
+      color: white;
       font-size: 35px;
       text-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
     }
-    &__icon {
+    .inner__icon {
         width: 100%;
         display: flex;
         margin: 20px auto 0;

@@ -1,39 +1,38 @@
-
-.inner-login {
-  width: 700px;
-  margin: 0 auto;
-}
-h2 {
-  font-size: 22px;
-  padding: 32px;
-  text-align: center;
-  font-weight: bold;
-}
-
-.inner-form {
-  padding: 24px;
-  margin-left: auto;
-  margin-right: auto;
-  background-color: white;
-  width: 400px;
-
-  .mail-btn {
-    font-size: 14px;
-    color: white;
-    text-decoration: none;
-    background-color: #ea352d;
-    display: block;
-    width: 100%;
-    line-height: 48px;
-    border: 1px solid transparent;
-    transition: all ease-out 3s;
-    cursor: pointer;
+.signup-container {
+  .title {
+    font-size: 22px;
+    padding: 32px;
     text-align: center;
+    font-weight: bold;
   }
-  .inner-form__content {
-    width: 343px;
+  .inner-form {
+    padding: 24px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: white;
+    width: 400px;
+
+    .mail-btn {
+      font-size: 14px;
+      color: white;
+      text-decoration: none;
+      background-color: #ea352d;
+      display: block;
+      width: 100%;
+      line-height: 48px;
+      border: 1px solid transparent;
+      transition: all ease-out 3s;
+      cursor: pointer;
+      text-align: center;
+    }
+    .inner-form__content {
+      width: 343px;
+    }
   }
 }
+
+
+
 
 
 
