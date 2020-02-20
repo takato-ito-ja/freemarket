@@ -20,11 +20,5 @@ class User < ApplicationRecord
   
     # associate
     has_many :products
-    has_many :comments
-    has_one :user_address, inverse_of: :user
     has_one :card
-    accepts_nested_attributes_for :user_address
-  
-    # accepts_nested_attributes_for :credit_card
-    mount_uploader :icon, ImageUploader
 end

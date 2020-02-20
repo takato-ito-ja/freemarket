@@ -15,10 +15,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.0]
       t.date :birthday
       t.text :icon
       t.text :introduction
-      # t.integer :seller_id,      null: false
-      # t.integer :buyer_id,   null: false
       
-
       ## Recoverable
       t.string   :reset_password_token
       t.datetime :reset_password_sent_at
