@@ -16,14 +16,9 @@
                   %li
                     -if image.id.present?
                       = image_tag "#{img.object.image_url}",size: "114x116",class:"product_image"
-                  -if image.id.present?
-                    .btn-box
-                      %a 編集
-                      = link_to "削除", image_path(image.id), method: :delete, class: "destroy-btn"
-                  -unless image.id.present?
-                    .btn-box
-                      %a 編集
-                      %a.delete-btn 削除
+                  .btn-box
+                    %a 編集
+                    %a{ class: "delete-btn", "data-imgid": "#{image.id}" }削除
       .sell__about
         .sell__about__name
           = f.label :name, "商品名"
