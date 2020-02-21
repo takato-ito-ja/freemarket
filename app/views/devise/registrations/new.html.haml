@@ -26,11 +26,11 @@
           %p 安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
         
         .field
-          %label{for: "fitst_name_kanji"} 姓（全角
+          %label{for: "fitst_name_kanji"} 姓
           %span.form-require 必須
           = f.text_field :first_name, class: "field__input", autocomplete: "family_name_kanji", placeholder: "例）山田"
         .field
-          %label{for: "last_name_kanji"} 名（全角）
+          %label{for: "last_name_kanji"} 名
           %span.form-require 必須
           = f.text_field :last_name, class: "field__input", autocomplete: "farst_name_kanji", placeholder: "例）綾"
         .field
